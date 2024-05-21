@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import Modal from "../components/modal";
 import { ReactComponent as Icon } from './../svgs/folder-outline.svg';
+import { ReactComponent as Icon1 } from './../svgs/search-outline.svg';
 import './../css/pages/home.css';
 
 function Home() {
@@ -70,13 +71,16 @@ function Home() {
 
     return (
         <div className="App_inner">
-            <input
-                type="text"
-                placeholder="Search by filename"
-                value={searchQuery}
-                onChange={handleSearchChange}
-                className="search_bar"
-            />
+            <div className='search_section'>
+                <Icon1 className="search_icon_home" width={25} height={25}></Icon1>
+                <input
+                    type="text"
+                    placeholder="Search by filename"
+                    value={searchQuery}
+                    onChange={handleSearchChange}
+                    className="search_bar"
+                />
+            </div>
             <li className='heading'>
                 <span className='file_icon_heading'></span>
                 <p className='file_name_heading'>File Name</p>

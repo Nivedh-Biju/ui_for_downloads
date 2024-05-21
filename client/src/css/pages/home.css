@@ -11,7 +11,7 @@
 
   
 .App_inner{
-    flex: 0 0 90%;
+    flex: 0 0 70%;
     display: flex;
     justify-content: center;
     overflow-y: hidden;
@@ -116,6 +116,9 @@
   
   
   @media screen and (max-width: 1400px) {
+    .App_inner{
+      justify-self: right;
+    }
     .individual_item{
       overflow-x: scroll;
       justify-content: center;
