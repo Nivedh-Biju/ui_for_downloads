@@ -9,6 +9,9 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    border: 1px solid rgb(67, 67, 67);
+    border-radius: 1rem;
+    box-shadow: 5px 5px 5px gray;
 }
 
 
@@ -60,4 +63,25 @@
     word-break: break-all;
     white-space: normal; 
     overflow-wrap: break-word; 
+}
+
+
+.submit_admin_file_details{
+    flex: 0 0 60%;
+    background-color: gray;
+    height: 3rem;
+    border-radius: 1rem;
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 1.8rem;
+    transition: 0.3s;
+    margin-bottom: 2rem;
+}
+
+.submit_admin_file_details:hover{
+    background-color: rgb(86, 85, 85);
+    box-shadow: 5px 5px 5px rgb(62, 61, 61);
+    font-size: 1.9rem;
+    cursor: pointer;
+    text-decoration: underline;
 }
