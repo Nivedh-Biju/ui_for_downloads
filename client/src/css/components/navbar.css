@@ -1,0 +1,158 @@
+
+.expand_button {
+    display: none;
+  }
+  
+  
+  
+  .side_nav{
+    background-color: white;
+    z-index: 10;
+    position: fixed;
+    top: 7.2rem;
+    left: 0;
+    width: 15rem; 
+    border-radius: 1rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    box-shadow: 0px 40px 30px rgb(66, 65, 65);
+  }
+  
+  .side_bar_icons {
+    z-index: 10;
+    width: 100%; /* Ensure icons take up the full width */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5rem;
+  }
+  
+  .icons {
+    transition: 0.3s;
+    color: gray;
+    flex: 0 0 10%; /* Allow icons to grow and shrink */
+    width: 2rem; /* Adjust icon width */
+    height: 5rem; /* Adjust icon height */
+    margin: 0.5rem; /* Adjust margin between icons */
+    z-index: 10;
+  } 
+  
+  .icons_name{
+    transition: 0.3s;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    flex: 0 0 70%;
+    color: gray;
+  }
+  
+  .icon_item{
+    justify-content: center;
+    flex: 0 0 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .icon_item:hover{
+    .icons{
+      color: rgb(171, 4, 171);
+    }
+    .icons_name{
+      color: rgb(171, 4, 171);
+    }
+    cursor: pointer;
+  }
+  
+  .side_nav.collapsed {
+    animation: fadeOut 1s; 
+  }
+
+
+
+
+
+  @media screen and (max-width: 800px) {
+    .file_icon{
+      margin-top: 0.5rem;
+    }
+  
+    .expand_button {
+      display: block;
+      background-color: white;
+      border: none;
+      color: gray;
+      font-size: 1.5rem;
+      position: fixed;
+      top: 7.2rem;
+      left: 0;
+      z-index: 15;
+      cursor: pointer;
+      padding: 1rem;
+      border-radius: 1rem;
+      box-shadow: 2px 3px 5px rgb(66, 65, 65);
+      transition: transform 0.3s ease;
+    }
+    
+    .expand_button:hover {
+      transform: scale(1.1);
+    }
+    
+    .side_nav {
+      background-color: white;
+      z-index: 10;
+      position: fixed;
+      top: 7.2rem;
+      left: 0;
+      width: 5rem;
+      border-radius: 1rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 1rem;
+      box-shadow: 0px 40px 30px rgb(66, 65, 65);
+      animation: fadeIn 1s;
+    }
+    
+    .side_nav.expanded {
+      animation: fadeIn 1s;
+      width: 15rem; /* Adjust the width as needed for expanded state */
+    }
+    
+    .side_bar_icons {
+      z-index: 10;
+      width: 100%; /* Ensure icons take up the full width */
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 5rem;
+    }
+    
+    .icons {
+      transition: 0.3s;
+      color: gray;
+      flex: 0 0 10%; /* Allow icons to grow and shrink */
+      width: 2rem; /* Adjust icon width */
+      height: 5rem; /* Adjust icon height */
+      margin: 0.5rem; /* Adjust margin between icons */
+      z-index: 10;
+    } 
+    
+    .icons_name{
+      transition: 0.3s;
+      margin-top: 2rem;
+      margin-left: 1rem;
+      flex: 0 0 70%;
+      color: gray;
+    }
+    
+    .icon_item{
+      justify-content: center;
+      flex: 0 0 100%;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+  

@@ -1,0 +1,202 @@
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 0.7; }
+  }
+  
+  @keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+  }
+
+  
+.App_inner{
+    flex: 0 0 90%;
+    display: flex;
+    justify-content: center;
+    overflow-y: hidden;
+    flex-wrap: wrap;
+  }
+  
+  
+  .inner_elements_header{
+    flex: 0 0 70%;
+    display: flex;
+  }
+  
+  .icon_inner_header{
+    flex: 0 0 4%;
+  }
+  
+  .display_items{
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0 70%;
+    justify-content: center;
+  }
+  
+  .heading{
+    flex: 0 0 74%;
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid rgb(117, 116, 116);
+    opacity: 0.8;
+    justify-content: center;
+  }
+  
+  .file_icon_heading{
+    flex: 0 0 4%;
+  }
+  
+  .file_name_heading{
+    flex: 0 0 80%;
+    margin-left: 2rem;
+    font-weight: 700;
+  }
+  
+  .download_button_span{
+    flex: 0 0 10%;
+    font-weight: 700;
+  }
+  .individual_item{
+    height: 3rem;
+    justify-content: left;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0 100%;  
+    border-bottom: 1px solid rgb(117, 116, 116);
+    transition: 0.3s;
+    opacity: 0.8; 
+  }
+  
+  .individual_item:hover{
+    background-color: rgb(192, 191, 191);
+    cursor: pointer;
+  }
+  
+  
+  .file_icon{
+    flex: 0 0 4%;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 1.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid rgb(152, 151, 151);
+  }
+  
+  .individual_item_name{
+    margin-top: 1rem;
+    margin-left: 2rem;
+    flex: 0 0 80%;
+  }
+  
+  .download_button{
+    padding-top: 2px;
+    padding-bottom: 2px;
+    flex: 0 0 10%;
+    margin-top: 0.7rem;
+    border: 1px solid black;
+    border-radius: 7px;
+    text-align: center;
+    transition: 0.3s;
+    width: 6rem;
+    color: black;
+  }
+  
+  a {
+    text-decoration: none; /* Remove underline */
+  }
+  
+  .download_button:hover{
+    background-color: rgb(237, 235, 235);
+    box-shadow: 1px 1px 1px;
+  }
+  
+  
+  
+  @media screen and (max-width: 1400px) {
+    .individual_item{
+      overflow-x: scroll;
+      justify-content: center;
+      flex-wrap: nowrap;
+    }
+    .heading{
+      justify-content: right;
+      overflow-x: scroll;
+      justify-content: center;
+      flex-wrap: nowrap; 
+    }
+    .file_icon_heading{
+      flex: 0 0 5%;
+    }
+    .individual_item_name{
+      flex: 0 0 80%;
+      text-align: left;
+    }
+    .file_name_heading{
+      flex: 0 0 80%;
+      text-align: center;
+    }
+    .download_button_span{
+      flex: 0 0 10%;
+      text-align: center;
+    }
+    .file_icon{
+      width: 3rem;
+      text-align: end;
+    }
+    .download_button{
+      text-align: left;
+      width: 4rem;
+      font-size: 0.8rem;
+    }
+  }
+  
+  
+  @media screen and (max-width: 800px) {
+    .individual_item_name{
+      font-size: 1rem;
+    }
+  
+    .heading{
+      flex: 0 0 100%;
+      font-size: 1rem;
+      justify-content: left;
+    }
+  
+    .file_name_heading{
+      text-align: left;
+    }
+  
+    .file_icon_heading{
+      text-align: center;
+    }
+  
+    .download_button{
+      flex: 0 0 5%;
+      font-size: 1rem;
+    }
+    .file_icon{
+      margin-top: 0.5rem;
+    }
+  }
+  
+  
+  
+  @media screen and (max-width: 600px) {
+  
+    .heading{
+      overflow-x: scroll;
+      justify-content: center;
+      flex-wrap: nowrap;  
+    }
+    .individual_item{
+      overflow-x: scroll;
+      justify-content: center;
+      flex-wrap: nowrap;
+    }
+    .download_button{
+      width: 5rem;
+    }
+  }
