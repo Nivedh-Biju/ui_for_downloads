@@ -200,3 +200,28 @@
       width: 5rem;
     }
   }
+
+  .search_section{
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .search_bar{
+    flex: 0 0 70%;
+    height: 2rem;
+    border: 1px solid gray;
+    border-radius: 0.5rem;
+  }
+
+  .search_icon_home{
+    flex: 0 0 5%;
+    margin-top: 10px;
+  }
+
+
+  .search_bar:hover{
+    box-shadow: 5px 5px 5px gray;
+  }
+

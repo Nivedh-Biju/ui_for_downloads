@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import Modal from "../components/modal";
 import { ReactComponent as Icon } from './../svgs/folder-outline.svg';
@@ -9,6 +9,7 @@ function Home() {
     const [selectedDescription, setSelectedDescription] = useState('');
     const [selectedDownloadLink, setSelectedDownloadLink] = useState('');
     const [items, setItems] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -33,8 +34,49 @@ function Home() {
         setShowModal(false);
     };
 
+    const searchHandler = async (query) => {
+        if (query) {
+            try {
+                const response = await axios.post('http://localhost:3001/api/files/search', {
+                    filename: query
+                });
+                setItems(response.data);
+            } catch (error) {
+                console.error('Error searching files:', error);
+            }
+        } else {
+            const response = await axios.get('http://localhost:3001/api/files');
+            setItems(response.data);
+        }
+    };
+
+    const debounce = (func, delay) => {
+        let timer;
+        return function(...args) {
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                func.apply(this, args);
+            }, delay);
+        };
+    };
+
+    const debouncedSearchHandler = useCallback(debounce(searchHandler, 1000), []);
+
+    const handleSearchChange = (e) => {
+        const query = e.target.value;
+        setSearchQuery(query);
+        debouncedSearchHandler(query);
+    };
+
     return (
         <div className="App_inner">
+            <input
+                type="text"
+                placeholder="Search by filename"
+                value={searchQuery}
+                onChange={handleSearchChange}
+                className="search_bar"
+            />
             <li className='heading'>
                 <span className='file_icon_heading'></span>
                 <p className='file_name_heading'>File Name</p>

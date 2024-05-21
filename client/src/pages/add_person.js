@@ -33,12 +33,22 @@ function AddDetails() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            if(file.filename === ''){
+                alert("Enter file name")
+            }
+            else if(file.link === ''){
+                alert("Enter link for file")
+            }
+            else if(file.description === ''){
+                alert("Enter description for file")
+            }
+            else{
             const response = await axios.post('http://localhost:3001/api/addData', file);
             if (response.status === 201) {
                 alert('Data added successfully!');
             } else {
                 alert('Failed to add data!');
-            }
+            }}
         } catch (error) {
             console.error('Error:', error);
             alert('Failed to add data!');

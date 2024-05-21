@@ -14,6 +14,20 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.post('/search', async (req, res) => {
+    const { filename } = req.body;
+    try {
+        const files = await FileModel.find({
+            filename: { $regex: filename, $options: 'i' }
+        });
+        res.status(200).json(files);
+        console.log(`Search request for filename: ${filename}`);
+    } catch (error) {
+        console.error('Error searching files:', error);
+        res.status(500).send('Failed to search files!');
+    }
+});
+
 module.exports = router;
 
 
