@@ -76,6 +76,7 @@
     font-size: 1.8rem;
     transition: 0.3s;
     margin-bottom: 2rem;
+    box-shadow: 2px 2px 2px rgb(113, 112, 112);
 }
 
 .submit_admin_file_details:hover{
