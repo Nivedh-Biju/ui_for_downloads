@@ -11,6 +11,8 @@ function Home() {
     const [selectedDownloadLink, setSelectedDownloadLink] = useState('');
     const [items, setItems] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 3;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -36,18 +38,14 @@ function Home() {
     };
 
     const searchHandler = async (query) => {
-        if (query) {
-            try {
-                const response = await axios.post('http://localhost:3001/api/files/search', {
-                    filename: query
-                });
-                setItems(response.data);
-            } catch (error) {
-                console.error('Error searching files:', error);
-            }
-        } else {
-            const response = await axios.get('http://localhost:3001/api/files');
+        try {
+            const response = await axios.post('http://localhost:3001/api/files/search', {
+                filename: query
+            });
             setItems(response.data);
+            setCurrentPage(1); // Reset to the first page on new search
+        } catch (error) {
+            console.error('Error searching files:', error);
         }
     };
 
@@ -69,6 +67,13 @@ function Home() {
         debouncedSearchHandler(query);
     };
 
+    const handlePageChange = (newPage) => {
+        setCurrentPage(newPage);
+    };
+
+    const paginatedItems = items.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+    const totalPages = Math.ceil(items.length / itemsPerPage);
+
     return (
         <div className="App_inner">
             <div className='search_section'>
@@ -87,7 +92,7 @@ function Home() {
                 <p className='download_button_span'>Download</p>
             </li>
             <ul className='display_items'>
-                {items.map((application, index) => (
+                {paginatedItems.map((application, index) => (
                     <li
                         key={index}
                         className='individual_item'
@@ -102,6 +107,17 @@ function Home() {
                 ))}
             </ul>
             <Modal show={showModal} onClose={handleCloseModal} description={selectedDescription} download_link={selectedDownloadLink} />
+            <div className='pagination'>
+                {Array.from({ length: totalPages }, (_, i) => (
+                    <div
+                        key={i}
+                        onClick={() => handlePageChange(i + 1)}
+                        className={`pagination_button ${i + 1 === currentPage ? 'active' : ''}`}
+                    >
+                        {i + 1}
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }

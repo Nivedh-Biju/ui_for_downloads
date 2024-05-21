@@ -228,3 +228,33 @@
     box-shadow: 5px 5px 5px gray;
   }
 
+  .pagination{
+    flex: 0 0 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .pagination_button{
+    background-color: rgb(158, 157, 157);
+    margin: 1rem;
+    height: 2rem;
+    flex: 0 0 5%;
+    border-radius: 2rem;
+    text-align: center;
+    transition: 0.2s;
+  }
+
+  .pagination_button.active{
+    background-color: rgb(93, 93, 93);
+    box-shadow: 2px 2px 2px gray;
+  }
+
+
+
+  .pagination_button:hover{
+    background-color: rgb(113, 113, 113);
+    box-shadow: 2px 2px 2px gray;
+    cursor: pointer;
+    text-decoration: underline;
+  }
