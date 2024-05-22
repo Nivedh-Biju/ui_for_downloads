@@ -12,8 +12,7 @@ function Home() {
     const [items, setItems] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 3;
-
+    const itemsPerPage = 5;
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -26,6 +25,8 @@ function Home() {
 
         fetchData();
     }, []);
+
+
 
     const handleItemClick = (description, link) => {
         setSelectedDescription(description);
@@ -42,7 +43,7 @@ function Home() {
             const response = await axios.post('http://localhost:3001/api/files/search', {
                 filename: query
             });
-            setItems(response.data);
+            console.log(response.data);
             setCurrentPage(1); // Reset to the first page on new search
         } catch (error) {
             console.error('Error searching files:', error);
@@ -86,11 +87,13 @@ function Home() {
                     className="search_bar"
                 />
             </div>
+            <ul className='display_items'>
             <li className='heading'>
                 <span className='file_icon_heading'></span>
                 <p className='file_name_heading'>File Name</p>
                 <p className='download_button_span'>Download</p>
             </li>
+            </ul>
             <ul className='display_items'>
                 {paginatedItems.map((application, index) => (
                     <li
@@ -98,14 +101,20 @@ function Home() {
                         className='individual_item'
                         onClick={() => handleItemClick(application.description, application.link)}
                     >
-                        <Icon className="file_icon" width={20} height={20} fill="currentColor" />
+                        {/* Display image from base64 data */}
+                        <img src={application.image} className="image_icon_home" alt="Image" />
                         <p className='individual_item_name'>{application.filename}</p>
-                        <a href={application.link} className='download_button_a'>
-                            <div className='download_button'>Download</div>
+                        <a
+                            href={application.link.startsWith('/api/addData/download/') ? `http://localhost:3001${application.link}` : application.link}
+                            className='download_button_a'
+                        >
+                            <div className='download_button'>Click Here</div>
                         </a>
                     </li>
                 ))}
             </ul>
+
+
             <Modal show={showModal} onClose={handleCloseModal} description={selectedDescription} download_link={selectedDownloadLink} />
             <div className='pagination'>
                 {Array.from({ length: totalPages }, (_, i) => (

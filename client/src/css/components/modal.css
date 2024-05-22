@@ -58,14 +58,14 @@
     border-radius: 2rem;
     height: 2.4rem;
     font-size: 1.8rem;
-    color: rgb(102, 197, 70);
+    color: rgb(205, 26, 214);
     font-weight: 600;
     transition: 0.3s;
   }
   
   .download_link_modal:hover{
     background-color: rgb(62, 61, 61);
-    color: rgb(78, 157, 52);
+    color: rgb(59, 4, 92);
     font-size: 1.9rem;
     height: 2.5rem;
   }
