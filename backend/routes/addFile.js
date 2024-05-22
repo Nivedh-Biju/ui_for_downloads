@@ -1,7 +1,7 @@
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
-const fs = require('fs'); // Add this line to import the 'fs' module
+const fs = require('fs'); 
 const FileModel = require('../db_schemas/File');
 
 const router = express.Router();
@@ -17,39 +17,37 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-router.post('/', upload.single('file'), async (req, res) => {
+router.post('/', upload.fields([{ name: 'file', maxCount: 1 }, { name: 'image', maxCount: 1 }]), async (req, res) => {
     try {
-        const { filename,link, description } = req.body;
-        const file = req.file;
+        const { filename, link, description,image } = req.body;
+        // const file = req.files['file'][0];
+        // const image = req.files['image'][0];
 
-        // If link is empty, set it to the download URL of the uploaded file
-        const fileLink = link !== '' ? link : `/api/addData/download/${file.filename}`;
+        console.log(image);
+        const fileLink = link !== '' ? link : `/api/addData/download/${req.files['file'][0].filename}`;
 
+        // const imageBuffer = Buffer.from(image, 'base64');
         const newFile = new FileModel({ 
             filename,
             link: fileLink,
             description,
+            image:  image,
         });
         console.log(newFile);
         await newFile.save();
 
         res.status(201).send('Data added successfully!');
-        console.log(req.body);
     } catch (error) {
         console.error('Error adding data:', error);
         res.status(500).send('Failed to add data!');
     }
 });
 
-// Route to handle file downloads
 router.get('/download/:filename', async (req, res) => {
     const filename = req.params.filename;
-    console.log("Download request received for file:", filename);
     const filePath = path.join(__dirname, '../../uploads', filename);
-    console.log(filePath);
-    // Check if file exists
+    
     if (fs.existsSync(filePath)) {
-        // Serve the file for download
         res.download(filePath, filename, (err) => {
             if (err) {
                 console.error('Error downloading file:', err);
