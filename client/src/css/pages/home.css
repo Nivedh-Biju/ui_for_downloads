@@ -92,6 +92,7 @@
   
   .image_icon_home{
     flex: 0 0 4%;
+    width: 4rem;
     border-radius: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
