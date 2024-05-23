@@ -4,7 +4,7 @@ import { ReactComponent as Icon1 } from './../svgs/home-outline.svg';
 import { ReactComponent as Icon2 } from './../svgs/people-outline.svg';
 import { ReactComponent as Icon3 } from './../svgs/search-outline.svg';
 import { ReactComponent as Icon4}  from './../svgs/add-circle-outline.svg';
-import './../css/components/navbar.css'
+import './../css/components/navbar.css' 
 
 function SideNav( {isAdmin,}) {
 
@@ -16,7 +16,7 @@ function SideNav( {isAdmin,}) {
     };
    
     return (
-      <div>
+      <div className="sid_nav_main">
         {(
           <button className="expand_button" onClick={toggleExpand}>
             {!isExpanded ? `☰` : `X`} 

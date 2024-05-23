@@ -1,7 +1,7 @@
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
-const fs = require('fs'); 
+const fs = require('fs');
 const FileModel = require('../db_schemas/File');
 
 const router = express.Router();
@@ -13,25 +13,24 @@ const storage = multer.diskStorage({
     filename: function (req, file, cb) {
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
     }
-});
+}); 
 
 const upload = multer({ storage });
 
 router.post('/', upload.fields([{ name: 'file', maxCount: 1 }, { name: 'image', maxCount: 1 }]), async (req, res) => {
     try {
-        const { filename, link, description,image } = req.body;
-        // const file = req.files['file'][0];
-        // const image = req.files['image'][0];
+        const { filename, link, description, roles: rolesString, image } = req.body;
+        const roles = JSON.parse(rolesString); // Parse the roles from the JSON string
 
         console.log(image);
         const fileLink = link !== '' ? link : `/api/addData/download/${req.files['file'][0].filename}`;
 
-        // const imageBuffer = Buffer.from(image, 'base64');
         const newFile = new FileModel({ 
             filename,
             link: fileLink,
             description,
-            image:  image,
+            roles, // Include roles array
+            image: image,
         });
         console.log(newFile);
         await newFile.save();

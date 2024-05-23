@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
     try {
-        const files = await FileModel.find();
+        const files = await FileModel.find().sort({ filename: 1 }); // Sort by filename in ascending order
         res.status(200).json(files);
     } catch (error) {
         console.error('Error fetching data:', error);
@@ -19,7 +19,7 @@ router.post('/search', async (req, res) => {
     try {
         const files = await FileModel.find({
             filename: { $regex: filename, $options: 'i' }
-        });
+        }).sort({ filename: 1 }); // Sort by filename in ascending order
         res.status(200).json(files);
         console.log(`Search request for filename: ${filename}`);
     } catch (error) {
@@ -27,6 +27,7 @@ router.post('/search', async (req, res) => {
         res.status(500).send('Failed to search files!');
     }
 });
+
 
 module.exports = router;
 

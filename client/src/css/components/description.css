@@ -1,0 +1,53 @@
+.description_page_main{
+    flex: 0 0 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.description_page_logo{
+    flex: 0 0 10%;
+    height: 10rem;
+    object-fit: contain;
+    align-items: flex-start;
+}
+
+.description_page_name{
+    flex: 0 0 90%;
+    font-size: 4rem;
+    margin-top: 2rem;
+    color: purple;
+}
+
+.description_page_description{
+    margin-top: 2rem;
+    flex: 0 0 70%;
+    word-break: normal;
+    font-size: 1.2rem;
+    color: gray;
+}
+
+.description_page_download_section{
+    margin-top: 2rem;
+    flex: 0 0 50%;
+}
+.description_page_download{
+    display: block;
+    background-color: rgb(184, 5, 184);
+    height: 2.5rem;
+    padding: 5px;
+    width: 12rem;
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.description_page_download:hover{
+    background-color: rgb(154, 4, 154);
+    font-size: 1.6rem;
+    color: rgb(227, 225, 225);
+    text-decoration: underline;
+    box-shadow: 6px 6px 6px rgb(114, 113, 113);
+}

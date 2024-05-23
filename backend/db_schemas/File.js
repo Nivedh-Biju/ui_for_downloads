@@ -8,7 +8,7 @@ const fileSchema = new mongoose.Schema({
     link: {
         type: String,
         required: false
-    },
+    }, 
     description: {
         type: String,
         required: true
@@ -16,6 +16,10 @@ const fileSchema = new mongoose.Schema({
     image: {
         type: String,
         required: true
+    },
+    roles: { 
+        type: [String],
+        required: false
     }
 });
 

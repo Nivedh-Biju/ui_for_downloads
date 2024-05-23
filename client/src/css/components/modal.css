@@ -1,6 +1,6 @@
 @keyframes fadeIn {
     0% { opacity: 0; }
-    100% { opacity: 0.7; }
+    100% { opacity: 0.9; }
   }
   
   @keyframes fadeOut {
@@ -19,8 +19,8 @@
     height: 60%;
     width: 50%; 
     max-width: 500px; 
-    background-color: rgb(163, 158, 158);
-    opacity: 0.7;
+    background-color: purple;
+    opacity: 0.9;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); 
@@ -29,7 +29,8 @@
   .modal_content_description_text{
     text-align: center;
     word-break: break-all;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    color: white;
   }
   
   
@@ -39,7 +40,7 @@
     right: 10px;
     font-size: 24px;
     cursor: pointer;
-    color: rgba(0, 0, 0, 0.5);
+    color: white;
   }
   
   .close_description:hover {
@@ -53,8 +54,8 @@
   
   .download_link_modal{
     text-align: center;
-    margin-top: 2rem;
-    background-color: rgb(81, 80, 80);
+    margin-top: 5rem;
+    background-color: white;
     border-radius: 2rem;
     height: 2.4rem;
     font-size: 1.8rem;
@@ -64,7 +65,7 @@
   }
   
   .download_link_modal:hover{
-    background-color: rgb(62, 61, 61);
+    background-color: rgb(228, 226, 226);
     color: rgb(59, 4, 92);
     font-size: 1.9rem;
     height: 2.5rem;
