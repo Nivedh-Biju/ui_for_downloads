@@ -12,6 +12,7 @@
   
 .App_inner{
     flex: 0 0 70%;
+    margin-left: 10rem;
     display: flex;
     justify-content: center;
     overflow-y: hidden;

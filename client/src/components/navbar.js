@@ -31,7 +31,7 @@ function SideNav( {isAdmin,}) {
               </li>
               <li className='icon_item'>
               <Icon2 className="icons" width={25} height={25}></Icon2>
-              <p className='icons_name'>Contact</p>
+              <p className='icons_name'>Profile</p>
               </li>
               <li className='icon_item'>
               <Icon3 className="icons" width={25} height={25}></Icon3>

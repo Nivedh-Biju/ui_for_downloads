@@ -250,7 +250,7 @@
     flex: 0 0 30%;
     color: gray;
     margin-top: 1rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .add_file_role_selector{
@@ -266,21 +266,35 @@
     text-align: left;
 }
 
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px; 
+}
+
 input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     width: 15px; 
-    margin-top: 0.5rem;
     height: 15px; 
     border: 2px solid gray; 
     border-radius: 4px; 
     outline: none; 
     cursor: pointer;
+    margin-right: 8px;
 }
 
-input[type="checkbox"]:checked{
+input[type="checkbox"]:checked {
     color: white; 
     background-color: purple;
     border: 2px solid black;
 }
+
+.add_file_role_label {
+    font-size: 15px; 
+    cursor: pointer;
+}
+
+

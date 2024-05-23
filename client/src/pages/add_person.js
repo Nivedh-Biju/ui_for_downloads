@@ -26,7 +26,7 @@ const RolesSelector = ({ selectedRoles, onRoleChange }) => {
 
     return (
         <div className='add_file_role_section'>
-            <label className='add_file_role_label'>
+            <label className='checkbox-container add_file_role_label'>
                 <input
                     type="checkbox"
                     value="All"
@@ -37,7 +37,7 @@ const RolesSelector = ({ selectedRoles, onRoleChange }) => {
                 All
             </label>
             {availableRoles.map((role) => (
-                <label key={role} className='add_file_role_label'>
+                <label key={role} className='checkbox-container add_file_role_label'>
                     <input
                         type="checkbox"
                         value={role}
