@@ -57,7 +57,7 @@ router.put('/edit/:id', upload.fields([{ name: 'file', maxCount: 1 }, { name: 'i
         const { filename, link, description, roles: rolesString, image } = req.body;
         const roles = JSON.parse(rolesString); // Parse the roles from the JSON string
 
-        console.log(image);
+        console.log(roles);
         const fileLink = link !== '' ? link : `/api/addData/download/${req.files['file'][0].filename}`;
 
         const updatedFileData = {

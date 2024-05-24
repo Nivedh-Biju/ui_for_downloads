@@ -8,7 +8,7 @@ import './../css/pages/home.css';
 import no_data from "./../svgs/7466073.png";
 
 
-const roles = ['All Files','Product Team Develpers', 'Service Area Developers', 'DB Team','Testers','Business Analysts','Business Development','HR'];
+const roles = ['All Files','Product Team Developers', 'Service Area Developers', 'DB Team','Testers','Business Analysts','Business Development','HR'];
 
 
 const TabComponent = ({ selectedRole, setSelectedRole}) => {
