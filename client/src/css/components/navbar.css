@@ -68,8 +68,13 @@
     animation: fadeOut 1s; 
   }
 
+  .icons_name.active{
+    color: purple;
+  }
 
-
+  .icons.active{
+    color: purple;
+  }
 
 
   @media screen and (max-width: 800px) {

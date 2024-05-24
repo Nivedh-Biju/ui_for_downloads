@@ -6,7 +6,7 @@ import { ReactComponent as Icon } from './../svgs/folder-outline.svg';
 import { ReactComponent as Icon1 } from './../svgs/search-outline.svg';
 import './../css/pages/home.css';
 import no_data from "./../svgs/7466073.png";
-
+import {Container,Tab} from 'react-bootstrap';
 
 const roles = ['All Files','Product Team Developers', 'Service Area Developers', 'DB Team','Testers','Business Analysts','Business Development','HR'];
 
@@ -17,14 +17,16 @@ const TabComponent = ({ selectedRole, setSelectedRole}) => {
     };
 
     return (
-        <div className="tab-container">
+        <div className="admin_edit_files_tab_container">
             {roles.map((role) => (
                 <div
                     key={role}
-                    className={`tab ${selectedRole === role ? 'active' : ''}`}
+                    className={`admin_edit_files_tab ${selectedRole === role ? 'admin_edit_files_active' : ''}`}
                     onClick={() => handleRoleClick(role)}
                 >
+                    <div className='admin_adit_files_tab_text'>
                     {role}
+                    </div>
                 </div>
             ))}
         </div>
@@ -138,13 +140,13 @@ function Home() {
             <TabComponent selectedRole={selectedRole} setSelectedRole={setSelectedRole} />
 
             {paginatedItems.length > 0 ? (
-            <ul className='display_items'>
-            <li className='heading'>
+            <ul className='heading'>
                 <span className='file_icon_heading'></span>
                 <p className='file_name_heading'>File Name</p>
                 <p className='download_button_span'>Download</p>
-            </li>
-            </ul>): (
+                <p className='know_more_button_span'>Description</p>
+            </ul>
+            ): (
                 <div className='no_data_home_main'>
                     <div className='no_data_home_main_image_section'>
                     <img src = {no_data} className='no_data_home_main_image'></img>
@@ -158,7 +160,7 @@ function Home() {
                         key={index} 
                         className='individual_item'
                         // onClick={() => handleItemClick(application.description, application.link)}
-                        onClick={() => navigate('/description', { state: { application } })}
+                        
                     >
                         {/* Display image from base64 data */}
                         <img src={application.image} className="image_icon_home" alt="Image" />
@@ -169,6 +171,9 @@ function Home() {
                         >
                             <div className='download_button'>Click Here</div>
                         </a>
+                        <div>
+                        <div className='know_more_button' onClick={() => navigate('/description', { state: { application } })}>Know More</div>
+                        </div>
                     </li>
                 ))}
             </ul>

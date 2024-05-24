@@ -7,7 +7,7 @@ import './../css/pages/admin_edit_files.css';
 import no_data from "./../svgs/7466073.png";
 
 const roles = [
-    'All',
+    'All Files',
     'Product Team Developers',
     'Service Area Developers',
     'DB Team',
@@ -30,7 +30,9 @@ const TabComponent = ({ selectedRole, setSelectedRole }) => {
                     className={`admin_edit_files_tab ${selectedRole === role ? 'admin_edit_files_active' : ''}`}
                     onClick={() => handleRoleClick(role)}
                 >
+                    <div className='admin_adit_files_tab_text'>
                     {role}
+                    </div>
                 </div>
             ))}
         </div>
@@ -44,7 +46,7 @@ function AdminEditFiles() {
     const [items, setItems] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
-    const [selectedRole, setSelectedRole] = useState('All');
+    const [selectedRole, setSelectedRole] = useState('All Files');
     const itemsPerPage = 5;
     const navigate = useNavigate();
 
@@ -115,7 +117,7 @@ function AdminEditFiles() {
     };
 
     const filteredItems = items.filter(application => {
-        if (selectedRole === 'All') {
+        if (selectedRole === 'All Files') {
             return true;
         }
         if (application.roles && application.roles.includes('all')) {
@@ -143,13 +145,11 @@ function AdminEditFiles() {
             <TabComponent selectedRole={selectedRole} setSelectedRole={setSelectedRole} />
 
             {paginatedItems.length > 0 ? (
-                <ul className='admin_edit_files_display_items'>
-                    <li className='admin_edit_files_heading'>
+                    <ul className='admin_edit_files_heading'>
                         <span className='admin_edit_files_file_icon_heading'></span>
                         <p className='admin_edit_files_file_name_heading'>File Name</p>
-                        <p className='admin_edit_files_download_button_span'>Download</p>
-                        <p className='admin_edit_files_action_button_heading'>Actions</p>
-                    </li>
+                        <p className='admin_edit_files_download_button_span'>Edit</p>
+                        <p className='admin_edit_files_action_button_heading'>Delete</p>
                 </ul>): (
                 <div className='no_data_home_main'>
                     <div className='no_data_home_main_image_section'>
@@ -170,7 +170,7 @@ function AdminEditFiles() {
                         >
                             <img src={application.image} className="admin_edit_files_image_icon_home" alt="Image" />
                             <p className='admin_edit_files_individual_item_name'>{application.filename}</p>
-                            
+                                   <div>
                                     <div
                                         className='admin_edit_files_edit_button'
                                         onClick={(e) => {
@@ -181,6 +181,8 @@ function AdminEditFiles() {
                                     >
                                         Edit
                                     </div>
+                                    </div>
+                                    <div>
                                     <div
                                         className='admin_edit_files_delete_button'
                                         onClick={(e) => {
@@ -189,6 +191,7 @@ function AdminEditFiles() {
                                         }}
                                     >
                                         Delete
+                                    </div>
                                     </div>
                             
                         </li>

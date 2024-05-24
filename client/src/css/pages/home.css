@@ -41,27 +41,28 @@
     justify-content: left;
     display: flex;
     flex-wrap: wrap;
-    flex: 0 0 100%;  
+    flex: 0 0 68%;  
     border-bottom: 1px solid rgb(117, 116, 116);
     transition: 0.3s;
-    margin-bottom: 0;
+    margin-top: 2rem;
     opacity: 0.8; 
   }
   
   .file_icon_heading{
     flex: 0 0 4%;
     border-radius: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    height: 4rem;
-    margin-top: 0rem;
+    padding: 10px;
+    height: 3rem;
+    margin-top: 20px;
   }
   
   .file_name_heading{
     margin-top: 1rem;
     margin-left: 2rem;
     flex: 0 0 60%;
-    font-weight: 700;
+    color: black;
+    font-size: 0.8rem;
+    font-weight: 600;
   }
   
   .download_button_span{
@@ -70,10 +71,27 @@
     margin-top: 0.7rem;
     border-radius: 7px;
     text-align: center;
-    font-weight: 700;
+    font-size: 0.8rem;
     width: 6rem;
-    color: black; 
+    color: black;
+    font-weight: 600;
   }
+
+
+  .know_more_button_span{
+    padding-top: 2px;
+    flex: 0 0 10%;
+    margin-top: 0.7rem;
+    border-radius: 7px;
+    margin-left: 4rem;
+    text-align: center;
+    font-size: 0.8rem;
+    width: 6rem;
+    color: black;
+    font-weight: 600; 
+}
+
+
   .individual_item{
     height: 5rem;
     justify-content: left;
@@ -85,44 +103,66 @@
     opacity: 0.8; 
   }
   
-  .individual_item:hover{
+  /* .individual_item:hover{
     background-color: rgb(192, 191, 191);
     cursor: pointer;
-  }
-  
+  } */
+
+   .download_button_a{
+    text-decoration: none;
+   }
   
   .image_icon_home{
     flex: 0 0 4%;
     width: 3rem;
     border-radius: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    height: 4rem;
-    margin-top: 0rem;
+    padding: 10px;
+    border: 1px solid gray;
+    height: 3rem;
+    margin-top: 20px;
     object-fit: contain;  
   }
   
   .individual_item_name{
-    margin-top: 1rem;
+    margin-top: 2rem;
     margin-left: 2rem;
+    font-weight: 600;
     flex: 0 0 60%;
   }
   
   .download_button{
     padding-top: 2px;
     padding-bottom: 2px;
-    flex: 0 0 10%;
+    flex: 1 0 10%;
+    margin-left: auto;
     margin-top: 1.5rem;
-    border: 1px solid black;
+    border: 1px solid gray;
     border-radius: 7px;
     text-align: center;
     transition: 0.3s;
     width: 6rem;
+    font-weight: 600;
     color: black;
   }
   
+
+  .know_more_button{
+    padding-top: 2px;
+    padding-bottom: 2px;
+    flex: 1 0 10%;
+    margin-top: 1.5rem;
+    border: 1px solid gray;
+    border-radius: 7px;
+    margin-left: 3rem;
+    text-align: center;
+    font-weight: 600;
+    transition: 0.3s;
+    width: 6rem;
+    color: black;
+  }
+
   a { 
-    text-decoration: none; 
+    text-decoration: none;  
   }
   
   .download_button:hover{
@@ -133,9 +173,17 @@
     box-shadow: 1px 1px 1px purple;
   }
   
+  .know_more_button:hover{
+    background-color: rgb(203, 5, 203);
+    color: white;
+    text-decoration: underline;
+    border: 1px solid rgb(203, 5, 203);
+    cursor: pointer;
+    box-shadow: 1px 1px 1px purple;
+  }
   
-  
-  @media screen and (max-width: 1400px) {
+   
+  @media screen and (max-width: 1700px) {
     .App_inner{
       justify-self: right;
     }
@@ -172,8 +220,6 @@
     }
     .download_button{
       text-align: left;
-      width: 4rem;
-      font-size: 0.8rem;
     }
   }
   
@@ -202,18 +248,17 @@
   }
   
   
-  
 
 
   .search_section{
-    flex: 0 0 100%;
+    flex: 0 0 80%;
     display: flex;
-    justify-content: center;
+    justify-content: right;
     margin-bottom: 2rem;
   }
 
   .search_bar{
-    flex: 0 0 70%;
+    flex: 0 0 30%;
     height: 2.5rem;
     padding: 0 10px;
     border: 2px solid rgb(182, 179, 179);
@@ -268,26 +313,39 @@
 
 
 
-  .tab-container {
-    flex: 0 0 75%;
+.tab-container {
+    flex: 0 0 85%;
     display: flex;
     border: 1px solid #ccc;
+    height: rem;
     border-radius: 5px;
 }
 
 .tab {
     flex: 1;
-    padding: 10px;
     text-align: center;
+    align-items: center;
     cursor: pointer;
-    background-color: #f0f0f0;
+    background-color: #fffbfb;  
+    font-size:1rem;
+    color: rgb(43, 42, 42);
     transition: background-color 0.3s ease;
+    border-right: 1px solid gray;
+    justify-content: center;
+}
+
+.tab:last-child{
+  border-right: none;
 }
 
 .tab:hover {
     background-color: #e0e0e0;
 }
 
+.text_tab{
+  text-align: center;
+  font-weight: 500;
+}
 .tab.active {
     background-color: purple;
     color: white;
@@ -301,7 +359,7 @@
   flex-wrap: wrap;
 }
 
-.no_data_home_main_image_section{
+.no_data_home_main_image_section{ 
   margin-top: 6rem;
   flex: 0 0 10%;
   height: 6rem;

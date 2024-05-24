@@ -38,27 +38,28 @@
     justify-content: left;
     display: flex;
     flex-wrap: wrap;
-    flex: 0 0 100%;
+    flex: 0 0 68%;  
     border-bottom: 1px solid rgb(117, 116, 116);
     transition: 0.3s;
-    margin-bottom: 0;
-    opacity: 0.8;
+    margin-top: 2rem;
+    opacity: 0.8; 
 }
 
 .admin_edit_files_file_icon_heading {
     flex: 0 0 4%;
     border-radius: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    height: 4rem;
-    margin-top: 0rem;
+    padding: 10px;
+    height: 3rem;
+    margin-top: 20px;
 }
 
 .admin_edit_files_file_name_heading {
     margin-top: 1rem;
     margin-left: 2rem;
-    flex: 0 0 50%;
-    font-weight: 700;
+    flex: 0 0 60%;
+    color: black;
+    font-size: 0.8rem;
+    font-weight: 600;
 }
 
 .admin_edit_files_download_button_span {
@@ -66,24 +67,24 @@
     flex: 0 0 10%;
     margin-top: 0.7rem;
     border-radius: 7px;
-    margin-left: 2rem;
     text-align: center;
-    font-weight: 700;
+    font-size: 0.8rem;
     width: 6rem;
     color: black;
+    font-weight: 600;
 }
-
 
 .admin_edit_files_action_button_heading{
     padding-top: 2px;
     flex: 0 0 10%;
     margin-top: 0.7rem;
-    margin-left: 2rem;
     border-radius: 7px;
+    margin-left: 4rem;
     text-align: center;
-    font-weight: 700;
+    font-size: 0.8rem;
     width: 6rem;
     color: black;
+    font-weight: 600;
 }
 
 
@@ -92,46 +93,47 @@
     justify-content: left;
     display: flex;
     flex-wrap: wrap;
-    flex: 0 0 100%;
+    flex: 0 0 100%;  
     border-bottom: 1px solid rgb(117, 116, 116);
     transition: 0.3s;
-    opacity: 0.8;
+    opacity: 0.8; 
 }
 
-.admin_edit_files_individual_item:hover {
+/* .admin_edit_files_individual_item:hover {
     background-color: rgb(192, 191, 191);
     cursor: pointer;
-}
+} */
 
 .admin_edit_files_image_icon_home {
     flex: 0 0 4%;
     width: 3rem;
     border-radius: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    height: 4rem;
-    margin-top: 0rem;
+    padding: 10px;
+    border: 1px solid gray;
+    height: 3rem;
+    margin-top: 20px;
     object-fit: contain;
 }
 
 .admin_edit_files_individual_item_name {
-    margin-top: 1rem;
+    margin-top: 2rem;
     margin-left: 2rem;
-    flex: 0 0 50%;
+    font-weight: 600;
+    flex: 0 0 60%;
 }
 
 .admin_edit_files_edit_button {
     padding-top: 2px;
     padding-bottom: 2px;
-    flex: 0 0 10%;
+    flex: 1 0 10%;
+    margin-left: auto;
     margin-top: 1.5rem;
-    border: 1px solid black;
-    margin-left: 2rem;
+    border: 1px solid gray;
     border-radius: 7px;
-    height: 1.5rem;
     text-align: center;
     transition: 0.3s;
     width: 6rem;
+    font-weight: 600;
     color: black;
 }
 
@@ -145,19 +147,20 @@ a {
     text-decoration: underline;
     border: 1px solid rgb(5, 203, 58);
     box-shadow: 1px 1px 1px rgb(5, 203, 58);
+    cursor: pointer;
 }
 
 
 .admin_edit_files_delete_button {
     padding-top: 2px;
     padding-bottom: 2px;
-    flex: 0 0 10%;
+    flex: 1 0 10%;
     margin-top: 1.5rem;
-    border: 1px solid black;
-    margin-left: 2rem;
+    border: 1px solid gray;
     border-radius: 7px;
-    height: 1.5rem;
+    margin-left: 3rem;
     text-align: center;
+    font-weight: 600;
     transition: 0.3s;
     width: 6rem;
     color: black;
@@ -173,12 +176,13 @@ a {
     text-decoration: underline;
     border: 1px solid rgb(203, 5, 5);
     box-shadow: 1px 1px 1px rgb(203, 5, 5);
+    cursor: pointer;
 }
 
 
 
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1700px) {
     .admin_edit_files_App_inner {
         justify-self: right;
     }
@@ -240,14 +244,14 @@ a {
 }
 
 .admin_edit_files_search_section {
-    flex: 0 0 100%;
+    flex: 0 0 80%;
     display: flex;
-    justify-content: center;
+    justify-content: right;
     margin-bottom: 2rem;
 }
 
 .admin_edit_files_search_bar {
-    flex: 0 0 70%;
+    flex: 0 0 30%;
     height: 2.5rem;
     padding: 0 10px;
     border: 2px solid rgb(182, 179, 179);
@@ -297,21 +301,31 @@ a {
 }
 
 .admin_edit_files_tab_container {
-    flex: 0 0 75%;
+    flex: 0 0 85%;
     display: flex;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .admin_edit_files_tab {
     flex: 1;
     padding: 10px;
     text-align: center;
+    font-size: 1rem;
+    display: flex;
     cursor: pointer;
-    background-color: #f0f0f0;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid gray;
     transition: background-color 0.3s ease;
 }
 
+.admin_adit_files_tab_text{
+    text-align: center;
+    font-weight: 500;
+    justify-content: center;
+}
 .admin_edit_files_tab:hover {
     background-color: #e0e0e0;
 }
