@@ -121,8 +121,8 @@
     color: black;
   }
   
-  a {
-    text-decoration: none; /* Remove underline */
+  a { 
+    text-decoration: none; 
   }
   
   .download_button:hover{
@@ -269,6 +269,7 @@
 
 
   .tab-container {
+    flex: 0 0 75%;
     display: flex;
     border: 1px solid #ccc;
     border-radius: 5px;

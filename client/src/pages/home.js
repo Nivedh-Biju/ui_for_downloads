@@ -42,6 +42,8 @@ function Home() {
     const [currentPage, setCurrentPage] = useState(1);  
     const [selectedRole,setSelectedRole] = useState('All Files');
     const itemsPerPage = 5;
+    const isAdmin = true;
+    
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -153,7 +155,7 @@ function Home() {
             <ul className='display_items'>
                 {paginatedItems.map((application, index) => (
                     <li
-                        key={index}
+                        key={index} 
                         className='individual_item'
                         // onClick={() => handleItemClick(application.description, application.link)}
                         onClick={() => navigate('/description', { state: { application } })}

@@ -4,6 +4,7 @@ import { ReactComponent as Icon1 } from './../svgs/home-outline.svg';
 import { ReactComponent as Icon2 } from './../svgs/people-outline.svg';
 import { ReactComponent as Icon3 } from './../svgs/search-outline.svg';
 import { ReactComponent as Icon4}  from './../svgs/add-circle-outline.svg';
+import { ReactComponent as Icon5}  from './../svgs/create-outline.svg';
 import './../css/components/navbar.css' 
 
 function SideNav( {isAdmin,}) {
@@ -41,6 +42,12 @@ function SideNav( {isAdmin,}) {
                 <li className='icon_item' onClick = { () => navigate('/add_details')}>
                 <Icon4 className="icons" width={25} height={25}></Icon4>
                 <p className='icons_name'>Add File</p>
+                </li>
+              }
+              { isAdmin &&
+                <li className='icon_item' onClick = { () => navigate('/edit_files')}>
+                <Icon5 className="icons" width={25} height={25}></Icon5>
+                <p className='icons_name'>Edit File</p>
                 </li>
               }
             </div>

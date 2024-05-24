@@ -1,7 +1,20 @@
 const express = require('express');
 const FileModel = require('../db_schemas/File');
+const multer = require('multer');
 
 const router = express.Router();
+
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads');
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    }
+}); 
+
+const upload = multer({ storage });
 
 
 router.get('/', async (req, res) => {
@@ -28,7 +41,45 @@ router.post('/search', async (req, res) => {
     }
 });
 
+router.delete('/delete/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        await FileModel.findByIdAndDelete(id);
+        res.status(200).send('File deleted successfully!');
+    } catch (error) {
+        console.error('Error deleting file:', error);
+        res.status(500).send('Failed to delete file!');
+    }
+});
+
+router.put('/edit/:id', upload.fields([{ name: 'file', maxCount: 1 }, { name: 'image', maxCount: 1 }]), async (req, res) => {
+    try {
+        const { filename, link, description, roles: rolesString, image } = req.body;
+        const roles = JSON.parse(rolesString); // Parse the roles from the JSON string
+
+        console.log(image);
+        const fileLink = link !== '' ? link : `/api/addData/download/${req.files['file'][0].filename}`;
+
+        const updatedFileData = {
+            filename,
+            link: fileLink,
+            description,
+            roles, // Include roles array
+            image: image,
+        };
+
+        // Find the file by ID and update its data
+        await FileModel.findByIdAndUpdate(req.params.id, updatedFileData);
+
+        res.status(200).send('Data updated successfully!');
+    } catch (error) {
+        console.error('Error updating data:', error);
+        res.status(500).send('Failed to update data!');
+    }
+});
+
 
 module.exports = router;
+
 
 

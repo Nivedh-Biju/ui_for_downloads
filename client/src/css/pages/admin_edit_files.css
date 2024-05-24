@@ -1,0 +1,349 @@
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 0.9; }
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.admin_edit_files_App_inner {
+    flex: 0 0 70%;
+    margin-left: 10rem;
+    display: flex;
+    justify-content: center;
+    overflow-y: hidden;
+    flex-wrap: wrap;
+}
+
+.admin_edit_files_inner_elements_header {
+    flex: 0 0 70%;
+    display: flex;
+}
+
+.admin_edit_files_icon_inner_header {
+    flex: 0 0 4%;
+}
+
+.admin_edit_files_display_items {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0 70%;
+    justify-content: center;
+}
+
+.admin_edit_files_heading {
+    height: 3rem;
+    justify-content: left;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0 100%;
+    border-bottom: 1px solid rgb(117, 116, 116);
+    transition: 0.3s;
+    margin-bottom: 0;
+    opacity: 0.8;
+}
+
+.admin_edit_files_file_icon_heading {
+    flex: 0 0 4%;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 4rem;
+    margin-top: 0rem;
+}
+
+.admin_edit_files_file_name_heading {
+    margin-top: 1rem;
+    margin-left: 2rem;
+    flex: 0 0 50%;
+    font-weight: 700;
+}
+
+.admin_edit_files_download_button_span {
+    padding-top: 2px;
+    flex: 0 0 10%;
+    margin-top: 0.7rem;
+    border-radius: 7px;
+    margin-left: 2rem;
+    text-align: center;
+    font-weight: 700;
+    width: 6rem;
+    color: black;
+}
+
+
+.admin_edit_files_action_button_heading{
+    padding-top: 2px;
+    flex: 0 0 10%;
+    margin-top: 0.7rem;
+    margin-left: 2rem;
+    border-radius: 7px;
+    text-align: center;
+    font-weight: 700;
+    width: 6rem;
+    color: black;
+}
+
+
+.admin_edit_files_individual_item {
+    height: 5rem;
+    justify-content: left;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0 100%;
+    border-bottom: 1px solid rgb(117, 116, 116);
+    transition: 0.3s;
+    opacity: 0.8;
+}
+
+.admin_edit_files_individual_item:hover {
+    background-color: rgb(192, 191, 191);
+    cursor: pointer;
+}
+
+.admin_edit_files_image_icon_home {
+    flex: 0 0 4%;
+    width: 3rem;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 4rem;
+    margin-top: 0rem;
+    object-fit: contain;
+}
+
+.admin_edit_files_individual_item_name {
+    margin-top: 1rem;
+    margin-left: 2rem;
+    flex: 0 0 50%;
+}
+
+.admin_edit_files_edit_button {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    flex: 0 0 10%;
+    margin-top: 1.5rem;
+    border: 1px solid black;
+    margin-left: 2rem;
+    border-radius: 7px;
+    height: 1.5rem;
+    text-align: center;
+    transition: 0.3s;
+    width: 6rem;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+.admin_edit_files_edit_button:hover {
+    background-color: rgb(5, 203, 58);
+    color: white;
+    text-decoration: underline;
+    border: 1px solid rgb(5, 203, 58);
+    box-shadow: 1px 1px 1px rgb(5, 203, 58);
+}
+
+
+.admin_edit_files_delete_button {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    flex: 0 0 10%;
+    margin-top: 1.5rem;
+    border: 1px solid black;
+    margin-left: 2rem;
+    border-radius: 7px;
+    height: 1.5rem;
+    text-align: center;
+    transition: 0.3s;
+    width: 6rem;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+.admin_edit_files_delete_button:hover {
+    background-color: rgb(203, 5, 5);
+    color: white;
+    text-decoration: underline;
+    border: 1px solid rgb(203, 5, 5);
+    box-shadow: 1px 1px 1px rgb(203, 5, 5);
+}
+
+
+
+
+@media screen and (max-width: 1400px) {
+    .admin_edit_files_App_inner {
+        justify-self: right;
+    }
+    .admin_edit_files_individual_item {
+        overflow-x: scroll;
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+    .admin_edit_files_heading {
+        overflow-x: scroll;
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+    .admin_edit_files_file_icon_heading {
+        width: 3rem;
+        text-align: end;
+    }
+    .admin_edit_files_individual_item_name {
+        flex: 0 0 80%;
+        text-align: left;
+    }
+    .admin_edit_files_file_name_heading {
+        flex: 0 0 80%;
+        text-align: left;
+    }
+    .admin_edit_files_download_button_span {
+        text-align: left;
+        width: 4rem;
+        font-size: 0.8rem;
+    }
+    .admin_edit_files_file_icon {
+        width: 3rem;
+        text-align: end;
+    }
+    .admin_edit_files_download_button {
+        text-align: left;
+        width: 4rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .admin_edit_files_individual_item_name {
+        font-size: 1rem;
+    }
+    .admin_edit_files_heading {
+        font-size: 1rem;
+    }
+    .admin_edit_files_file_name_heading {
+        text-align: left;
+    }
+    .admin_edit_files_download_button {
+        flex: 0 0 5%;
+        font-size: 1rem;
+    }
+    .admin_edit_files_file_icon {
+        margin-top: 0.5rem;
+    }
+}
+
+.admin_edit_files_search_section {
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.admin_edit_files_search_bar {
+    flex: 0 0 70%;
+    height: 2.5rem;
+    padding: 0 10px;
+    border: 2px solid rgb(182, 179, 179);
+    border-radius: 0.5rem;
+}
+
+.admin_edit_files_search_icon_home {
+    flex: 0 0 5%;
+    margin-top: 10px;
+}
+
+.admin_edit_files_search_bar:hover {
+    box-shadow: 5px 5px 5px gray;
+}
+
+.admin_edit_files_pagination {
+    flex: 0 0 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    justify-content: center;
+}
+
+.admin_edit_files_pagination_button {
+    background-color: rgb(191, 3, 191);
+    color: white;
+    margin: 1rem;
+    display: block;
+    font-size: 1.5rem;
+    padding: 0.3rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 3rem;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.admin_edit_files_pagination_button.admin_edit_files_active {
+    background-color: purple;
+}
+
+.admin_edit_files_pagination_button:hover {
+    background-color: purple;
+    box-shadow: 2px 2px 2px gray;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.admin_edit_files_tab_container {
+    flex: 0 0 75%;
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.admin_edit_files_tab {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease;
+}
+
+.admin_edit_files_tab:hover {
+    background-color: #e0e0e0;
+}
+
+.admin_edit_files_tab.admin_edit_files_active {
+    background-color: purple;
+    color: white;
+}
+
+.admin_edit_files_no_data_home_main {
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.admin_edit_files_no_data_home_main_image_section {
+    margin-top: 6rem;
+    flex: 0 0 10%;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+}
+
+.admin_edit_files_no_data_home_main_image {
+    height: 5rem;
+    width: 5rem;
+}
+
+.admin_edit_files_no_data_home_main_description {
+    flex: 0 0 100%;
+    text-align: center;
+    margin-top: 0;
+    color: gray;
+}

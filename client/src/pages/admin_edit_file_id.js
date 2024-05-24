@@ -1,10 +1,11 @@
-import React, { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import '../css/pages/add_person.css';
+import { useNavigate, useLocation } from 'react-router-dom';
+import './../css/pages/edit_file_id.css';
 
 
-const availableRoles = ['Product Team Develpers', 'Service Area Developers', 'DB Team','Testers','Business Analysts','Business Development','HR'];
+
+const availableRoles = ['Product Team Developers', 'Service Area Developers', 'DB Team', 'Testers', 'Business Analysts', 'Business Development', 'HR'];
 
 const RolesSelector = ({ selectedRoles, onRoleChange }) => {
     const isAllSelected = selectedRoles.length === availableRoles.length;
@@ -54,7 +55,14 @@ const RolesSelector = ({ selectedRoles, onRoleChange }) => {
 
 
 
-function AddDetails() {
+
+const EditFileComponent = () => {
+    const [fileData, setFileData] = useState(null);
+    const [error, setError] = useState(null);
+    const location = useLocation();
+    const { application } = location.state || {};
+    const fileId = application._id;
+
     const [file, setFile] = useState({
         filename: '',
         link: '',
@@ -63,6 +71,13 @@ function AddDetails() {
         file: null,
         image: null
     });
+
+    useEffect(() => {
+            setFile({ filename:application.filename, link: application.link, description:application.description, roles:application.roles, image:application.image });
+            setSelectedImage(application.image ? 'Image selected' : 'No image selected');
+    }, [application]);
+
+
     const [selectedFileName, setSelectedFileName] = useState('No file selected');
     const [selectedImage, setSelectedImage] = useState('No image selected');
 
@@ -137,9 +152,9 @@ function AddDetails() {
         e.preventDefault();
         try {
             const formData = new FormData();
-
+    
             const rolesToSubmit = file.roles.length === availableRoles.length ? 'all' : file.roles;
-
+            console.log(file);
             if (file.image) {
                 formData.append('image', file.image);
             }
@@ -152,35 +167,34 @@ function AddDetails() {
             formData.append('link', file.link);
             formData.append('description', file.description);
             formData.append('roles', JSON.stringify(rolesToSubmit)); // Append roles as JSON string
-
-            const response = await axios.post('http://localhost:3001/api/addData', formData, {
+            console.log(formData.filename);
+            const response = await axios.put(`http://localhost:3001/api/files/edit/${fileId}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             });
     
-            if (response.status === 201) {
-                alert('Data added successfully!');
+            if (response.status === 200) {
                 navigate('/home');
             } else {
-                alert('Failed to add data!');
+                console.log('Failed to edit data');
             }
         } catch (error) {
             console.error('Error:', error);
-            alert('Failed to add data!');
         }
     };
+    
 
     return (
         <div className='add_details_admin_main'>
             <div className='add_details_admin_inner'>
-                <label className='add_details_admin_main_label'>Add File</label>
+                <label className='add_details_admin_main_label'>Edit File</label>
                 <label className='add_details_admin_name_label'>Enter File Name :</label>
                 <label className='add_details_admin_link_label'>Enter Link:</label>
-                <input className='add_details_admin_name_input' onChange={handleNameInput} placeholder='file name'/>
-                <input className='add_details_admin_link_input' onChange={handleLinkInput} placeholder='link'/>
+                <input className='add_details_admin_name_input' onChange={handleNameInput} placeholder='file name' value={file.filename}/>
+                <input className='add_details_admin_link_input' onChange={handleLinkInput} placeholder='link' value={file.link}/>
                 <label className='add_details_admin_description_label'>Enter description:</label>
-                <textarea className='add_details_admin_description_input' onChange={handleDescriptionInput} placeholder='description'></textarea>
+                <textarea className='add_details_admin_description_input' onChange={handleDescriptionInput} placeholder='description' value={file.description}></textarea>
                 <label className='add_details_admin_roles_label'>Select Roles:</label>
                 <RolesSelector selectedRoles={file.roles} onRoleChange={handleRoleChange} />
                 {/* <label className='add_details_admin_file_label'>Upload File:</label> */}
@@ -205,6 +219,6 @@ function AddDetails() {
             </div>
         </div>
     );
-}
+};
 
-export default AddDetails;
+export default EditFileComponent;
