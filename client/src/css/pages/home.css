@@ -11,7 +11,7 @@
 
   
 .App_inner{
-    flex: 0 0 70%;
+    flex: 0 1 70%;
     margin-left: 10rem;
     display: flex;
     justify-content: center;
@@ -21,18 +21,18 @@
   
   
   .inner_elements_header{
-    flex: 0 0 70%;
+    flex: 0 1 70%;
     display: flex;
   }
   
   .icon_inner_header{
-    flex: 0 0 4%;
+    flex: 0 1 4%;
   }
   
   .display_items{
     display: flex;
     flex-wrap: wrap;
-    flex: 0 0 70%;
+    flex: 0 1 90%;
     justify-content: center;
   }
   
@@ -41,7 +41,7 @@
     justify-content: left;
     display: flex;
     flex-wrap: wrap;
-    flex: 0 0 68%;  
+    flex: 0 1 88%;  
     border-bottom: 1px solid rgb(117, 116, 116);
     transition: 0.3s;
     margin-top: 2rem;
@@ -49,7 +49,7 @@
   }
   
   .file_icon_heading{
-    flex: 0 0 4%;
+    flex: 0 1 4%;
     border-radius: 10px;
     padding: 10px;
     height: 3rem;
@@ -67,12 +67,13 @@
   
   .download_button_span{
     padding-top: 2px;
-    flex: 0 0 10%;
+    flex: 0 1 10%;
     margin-top: 0.7rem;
     border-radius: 7px;
-    text-align: center;
+    text-align: left;
     font-size: 0.8rem;
     width: 6rem;
+    margin-left: 0.9rem;
     color: black;
     font-weight: 600;
   }
@@ -80,11 +81,11 @@
 
   .know_more_button_span{
     padding-top: 2px;
-    flex: 0 0 10%;
+    flex: 0 1 10%;
     margin-top: 0.7rem;
     border-radius: 7px;
-    margin-left: 4rem;
-    text-align: center;
+    margin-left: 2rem;
+    text-align: left;
     font-size: 0.8rem;
     width: 6rem;
     color: black;
@@ -97,7 +98,7 @@
     justify-content: left;
     display: flex;
     flex-wrap: wrap;
-    flex: 0 0 100%;  
+    flex: 0 1 100%;  
     border-bottom: 1px solid rgb(117, 116, 116);
     transition: 0.3s;
     opacity: 0.8; 
@@ -113,7 +114,7 @@
    }
   
   .image_icon_home{
-    flex: 0 0 4%;
+    flex: 0 1 4%;
     width: 3rem;
     border-radius: 10px;
     padding: 10px;
@@ -127,13 +128,13 @@
     margin-top: 2rem;
     margin-left: 2rem;
     font-weight: 600;
-    flex: 0 0 60%;
+    flex: 0 1 60%;
   }
   
   .download_button{
     padding-top: 2px;
     padding-bottom: 2px;
-    flex: 1 0 10%;
+    flex: 1 1 10%;
     margin-left: auto;
     margin-top: 1.5rem;
     border: 1px solid gray;
@@ -149,7 +150,7 @@
   .know_more_button{
     padding-top: 2px;
     padding-bottom: 2px;
-    flex: 1 0 10%;
+    flex: 1 1 10%;
     margin-top: 1.5rem;
     border: 1px solid gray;
     border-radius: 7px;
@@ -183,7 +184,7 @@
   }
   
    
-  @media screen and (max-width: 1700px) {
+  @media screen and (max-width: 1400px) {
     .App_inner{
       justify-self: right;
     }
@@ -202,11 +203,9 @@
       text-align: end;
     }
     .individual_item_name{
-      flex: 0 0 80%;
       text-align: left;
     }
     .file_name_heading{
-      flex: 0 0 80%;
       text-align: left;
     }
     .download_button_span{
@@ -239,7 +238,7 @@
   
   
     .download_button{
-      flex: 0 0 5%;
+      flex: 0 1 5%;
       font-size: 1rem;
     }
     .file_icon{
@@ -251,14 +250,14 @@
 
 
   .search_section{
-    flex: 0 0 80%;
+    flex: 0 1 85%;
     display: flex;
     justify-content: right;
     margin-bottom: 2rem;
   }
 
   .search_bar{
-    flex: 0 0 30%;
+    flex: 0 1 30%;
     height: 2.5rem;
     padding: 0 10px;
     border: 2px solid rgb(182, 179, 179);
@@ -266,7 +265,7 @@
   }
 
   .search_icon_home{
-    flex: 0 0 5%;
+    flex: 0 1 5%;
     margin-top: 10px;
   }
 
@@ -276,7 +275,7 @@
   }
 
   .pagination{
-    flex: 0 0 100%;
+    flex: 0 1 100%;
     display: flex;
     flex-wrap: wrap;
     margin-top: 3rem;
@@ -314,7 +313,7 @@
 
 
 .tab-container {
-    flex: 0 0 85%;
+    flex: 0 1 85%;
     display: flex;
     border: 1px solid #ccc;
     height: rem;
@@ -327,7 +326,7 @@
     align-items: center;
     cursor: pointer;
     background-color: #fffbfb;  
-    font-size:1rem;
+    font-size:1rem; 
     color: rgb(43, 42, 42);
     transition: background-color 0.3s ease;
     border-right: 1px solid gray;
@@ -353,7 +352,7 @@
 
 
 .no_data_home_main{
-  flex: 0 0 100%;
+  flex: 0 1 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -361,7 +360,7 @@
 
 .no_data_home_main_image_section{ 
   margin-top: 6rem;
-  flex: 0 0 10%;
+  flex: 0 1 10%;
   height: 6rem;
   display: flex;
   justify-content: center;
@@ -373,7 +372,7 @@
 }
 
 .no_data_home_main_description{
-  flex: 0 0 100%;
+  flex: 0 1 100%;
   text-align: center;
   margin-top: 0;
   color: gray;

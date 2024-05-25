@@ -20,19 +20,22 @@ const upload = multer({ storage });
 router.post('/', upload.fields([{ name: 'file', maxCount: 1 }, { name: 'image', maxCount: 1 }]), async (req, res) => {
     try {
         const { filename, link, description, roles: rolesString, image } = req.body;
-        const roles = JSON.parse(rolesString); // Parse the roles from the JSON string
+        const roles = JSON.parse(rolesString); 
 
-        console.log(image);
+        const currentDate = new Date(); 
+
         const fileLink = link !== '' ? link : `/api/addData/download/${req.files['file'][0].filename}`;
 
         const newFile = new FileModel({ 
             filename,
             link: fileLink,
             description,
-            roles, // Include roles array
-            image: image,
+            roles, 
+            image,
+            uploadedDate: currentDate, 
+            updatedDate: currentDate 
         });
-        console.log(newFile);
+
         await newFile.save();
 
         res.status(201).send('Data added successfully!');

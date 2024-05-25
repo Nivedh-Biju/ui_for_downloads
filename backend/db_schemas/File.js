@@ -20,6 +20,14 @@ const fileSchema = new mongoose.Schema({
     roles: { 
         type: [String],
         required: false
+    },
+    uploadedDate: {
+        type: Date,
+        default: Date.now
+    },
+    updatedDate: {
+        type: Date,
+        default: Date.now
     }
 });
 

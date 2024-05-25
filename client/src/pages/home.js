@@ -179,7 +179,7 @@ function Home() {
             </ul>
 
 
-            <Modal show={showModal} onClose={handleCloseModal} description={selectedDescription} download_link={selectedDownloadLink} />
+            {/* <Modal show={showModal} onClose={handleCloseModal} description={selectedDescription} download_link={selectedDownloadLink} /> */}
             <div className='pagination'>
                 {Array.from({ length: totalPages }, (_, i) => (
                     <div

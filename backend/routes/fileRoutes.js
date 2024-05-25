@@ -55,7 +55,9 @@ router.delete('/delete/:id', async (req, res) => {
 router.put('/edit/:id', upload.fields([{ name: 'file', maxCount: 1 }, { name: 'image', maxCount: 1 }]), async (req, res) => {
     try {
         const { filename, link, description, roles: rolesString, image } = req.body;
-        const roles = JSON.parse(rolesString); // Parse the roles from the JSON string
+        const roles = JSON.parse(rolesString); 
+
+        const currentDate = new Date(); 
 
         console.log(roles);
         const fileLink = link !== '' ? link : `/api/addData/download/${req.files['file'][0].filename}`;
@@ -64,11 +66,12 @@ router.put('/edit/:id', upload.fields([{ name: 'file', maxCount: 1 }, { name: 'i
             filename,
             link: fileLink,
             description,
-            roles, // Include roles array
+            roles, 
             image: image,
+            updatedDate: currentDate 
         };
 
-        // Find the file by ID and update its data
+
         await FileModel.findByIdAndUpdate(req.params.id, updatedFileData);
 
         res.status(200).send('Data updated successfully!');
@@ -77,6 +80,7 @@ router.put('/edit/:id', upload.fields([{ name: 'file', maxCount: 1 }, { name: 'i
         res.status(500).send('Failed to update data!');
     }
 });
+
 
 
 module.exports = router;

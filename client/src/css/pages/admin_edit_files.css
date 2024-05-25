@@ -9,7 +9,7 @@
 }
 
 .admin_edit_files_App_inner {
-    flex: 0 0 70%;
+    flex: 0 1 70%;
     margin-left: 10rem;
     display: flex;
     justify-content: center;
@@ -18,18 +18,18 @@
 }
 
 .admin_edit_files_inner_elements_header {
-    flex: 0 0 70%;
+    flex: 0 1 70%;
     display: flex;
 }
 
 .admin_edit_files_icon_inner_header {
-    flex: 0 0 4%;
+    flex: 0 1 4%;
 }
 
 .admin_edit_files_display_items {
     display: flex;
     flex-wrap: wrap;
-    flex: 0 0 70%;
+    flex: 0 1 90%;
     justify-content: center;
 }
 
@@ -38,7 +38,7 @@
     justify-content: left;
     display: flex;
     flex-wrap: wrap;
-    flex: 0 0 68%;  
+    flex: 0 1 88%;  
     border-bottom: 1px solid rgb(117, 116, 116);
     transition: 0.3s;
     margin-top: 2rem;
@@ -46,7 +46,7 @@
 }
 
 .admin_edit_files_file_icon_heading {
-    flex: 0 0 4%;
+    flex: 0 1 4%;
     border-radius: 10px;
     padding: 10px;
     height: 3rem;
@@ -55,35 +55,46 @@
 
 .admin_edit_files_file_name_heading {
     margin-top: 1rem;
-    margin-left: 2rem;
-    flex: 0 0 60%;
+    margin-left: 1rem;
+    flex: 0 1 35%;
+    color: black;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.admin_edit_files_uploaded_date_heading{
+    margin-top: 1rem;
+    margin-left: 1.5rem;
+    flex: 0 1 10%;
+    color: black;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.admin_edit_files_file_updated_date_heading{
+    margin-top: 1rem;
+    margin-left: 1.5rem;
+    flex: 0 1 10%;
     color: black;
     font-size: 0.8rem;
     font-weight: 600;
 }
 
 .admin_edit_files_download_button_span {
-    padding-top: 2px;
-    flex: 0 0 10%;
-    margin-top: 0.7rem;
-    border-radius: 7px;
-    text-align: center;
-    font-size: 0.8rem;
-    width: 6rem;
+    margin-top: 1rem;
+    margin-left: 2.5rem;
+    flex: 0 1 10%;
     color: black;
+    font-size: 0.8rem;
     font-weight: 600;
 }
 
 .admin_edit_files_action_button_heading{
-    padding-top: 2px;
-    flex: 0 0 10%;
-    margin-top: 0.7rem;
-    border-radius: 7px;
-    margin-left: 4rem;
-    text-align: center;
-    font-size: 0.8rem;
-    width: 6rem;
+    margin-top: 1rem;
+    margin-left: 2rem;
+    flex: 0 1 10%;
     color: black;
+    font-size: 0.8rem;
     font-weight: 600;
 }
 
@@ -93,7 +104,7 @@
     justify-content: left;
     display: flex;
     flex-wrap: wrap;
-    flex: 0 0 100%;  
+    flex: 0 1 100%;  
     border-bottom: 1px solid rgb(117, 116, 116);
     transition: 0.3s;
     opacity: 0.8; 
@@ -105,7 +116,7 @@
 } */
 
 .admin_edit_files_image_icon_home {
-    flex: 0 0 4%;
+    flex: 0 1 4%;
     width: 3rem;
     border-radius: 10px;
     padding: 10px;
@@ -119,14 +130,29 @@
     margin-top: 2rem;
     margin-left: 2rem;
     font-weight: 600;
-    flex: 0 0 60%;
+    flex: 0 1 35%;
 }
+
+.admin_edit_files_uploaded_date{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    font-weight: 600;
+    flex: 0 1 10%;
+}
+
+.admin_edit_files_updated_date{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    font-weight: 600;
+    flex: 0 1 10%;
+}
+
 
 .admin_edit_files_edit_button {
     padding-top: 2px;
     padding-bottom: 2px;
-    flex: 1 0 10%;
-    margin-left: auto;
+    flex: 1 1 10%;
+    margin-left: 2rem;
     margin-top: 1.5rem;
     border: 1px solid gray;
     border-radius: 7px;
@@ -154,7 +180,7 @@ a {
 .admin_edit_files_delete_button {
     padding-top: 2px;
     padding-bottom: 2px;
-    flex: 1 0 10%;
+    flex: 1 1 10%;
     margin-top: 1.5rem;
     border: 1px solid gray;
     border-radius: 7px;
@@ -182,7 +208,7 @@ a {
 
 
 
-@media screen and (max-width: 1700px) {
+@media screen and (max-width: 1400px) {
     .admin_edit_files_App_inner {
         justify-self: right;
     }
@@ -201,11 +227,9 @@ a {
         text-align: end;
     }
     .admin_edit_files_individual_item_name {
-        flex: 0 0 80%;
         text-align: left;
     }
     .admin_edit_files_file_name_heading {
-        flex: 0 0 80%;
         text-align: left;
     }
     .admin_edit_files_download_button_span {
@@ -235,7 +259,7 @@ a {
         text-align: left;
     }
     .admin_edit_files_download_button {
-        flex: 0 0 5%;
+        flex: 0 1 5%;
         font-size: 1rem;
     }
     .admin_edit_files_file_icon {
@@ -244,14 +268,14 @@ a {
 }
 
 .admin_edit_files_search_section {
-    flex: 0 0 80%;
+    flex: 0 1 85%;
     display: flex;
     justify-content: right;
     margin-bottom: 2rem;
 }
 
 .admin_edit_files_search_bar {
-    flex: 0 0 30%;
+    flex: 0 1 30%;
     height: 2.5rem;
     padding: 0 10px;
     border: 2px solid rgb(182, 179, 179);
@@ -259,7 +283,7 @@ a {
 }
 
 .admin_edit_files_search_icon_home {
-    flex: 0 0 5%;
+    flex: 0 1 5%;
     margin-top: 10px;
 }
 
@@ -268,7 +292,7 @@ a {
 }
 
 .admin_edit_files_pagination {
-    flex: 0 0 100%;
+    flex: 0 1 100%;
     display: flex;
     flex-wrap: wrap;
     margin-top: 3rem;
@@ -301,7 +325,7 @@ a {
 }
 
 .admin_edit_files_tab_container {
-    flex: 0 0 85%;
+    flex: 0 1 85%;
     display: flex;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -336,7 +360,7 @@ a {
 }
 
 .admin_edit_files_no_data_home_main {
-    flex: 0 0 100%;
+    flex: 0 1 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -344,7 +368,7 @@ a {
 
 .admin_edit_files_no_data_home_main_image_section {
     margin-top: 6rem;
-    flex: 0 0 10%;
+    flex: 0 1 10%;
     height: 6rem;
     display: flex;
     justify-content: center;
@@ -356,7 +380,7 @@ a {
 }
 
 .admin_edit_files_no_data_home_main_description {
-    flex: 0 0 100%;
+    flex: 0 1 100%;
     text-align: center;
     margin-top: 0;
     color: gray;

@@ -148,6 +148,8 @@ function AdminEditFiles() {
                     <ul className='admin_edit_files_heading'>
                         <span className='admin_edit_files_file_icon_heading'></span>
                         <p className='admin_edit_files_file_name_heading'>File Name</p>
+                        <p className='admin_edit_files_uploaded_date_heading'>Uploaded Date</p>
+                        <p className='admin_edit_files_file_updated_date_heading'>Updated Date</p>
                         <p className='admin_edit_files_download_button_span'>Edit</p>
                         <p className='admin_edit_files_action_button_heading'>Delete</p>
                 </ul>): (
@@ -164,37 +166,39 @@ function AdminEditFiles() {
                 {
                     paginatedItems.map((application, index) => (
                         <li
-                            key={index}
-                            className='admin_edit_files_individual_item'
-                            onClick={() => navigate('/description', { state: { application } })}
-                        >
-                            <img src={application.image} className="admin_edit_files_image_icon_home" alt="Image" />
-                            <p className='admin_edit_files_individual_item_name'>{application.filename}</p>
-                                   <div>
-                                    <div
-                                        className='admin_edit_files_edit_button'
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            console.log(application._id);
-                                            navigate('/edit_file',{state : {application}});
-                                        }}
-                                    >
-                                        Edit
-                                    </div>
-                                    </div>
-                                    <div>
-                                    <div
-                                        className='admin_edit_files_delete_button'
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            handleDelete(application._id);
-                                        }}
-                                    >
-                                        Delete
-                                    </div>
-                                    </div>
-                            
-                        </li>
+    key={index}
+    className='admin_edit_files_individual_item'
+    onClick={() => navigate('/description', { state: { application } })}
+>
+    <img src={application.image} className="admin_edit_files_image_icon_home" alt="Image" />
+    <p className='admin_edit_files_individual_item_name'>{application.filename}</p>
+    <div className='admin_edit_files_uploaded_date'>{new Date(application.uploadedDate).toLocaleString()}</div>
+    <div className='admin_edit_files_updated_date'>{new Date(application.updatedDate).toLocaleString()}</div>
+    <div>
+        <div
+            className='admin_edit_files_edit_button'
+            onClick={(e) => {
+                e.stopPropagation();
+                console.log(application._id);
+                navigate('/edit_file',{state : {application}});
+            }}
+        >
+            Edit
+        </div>
+    </div>
+    <div>
+        <div
+            className='admin_edit_files_delete_button'
+            onClick={(e) => {
+                e.stopPropagation();
+                handleDelete(application._id);
+            }}
+        >
+            Delete
+        </div>
+    </div>
+</li>
+
                     ))
                }
             </ul>
