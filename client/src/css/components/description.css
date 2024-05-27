@@ -38,16 +38,18 @@
     padding: 5px;
     width: 12rem;
     color: white;
-    font-size: 1.5rem;
-    border-radius: 1rem;
+    font-size: 1.2rem;
+    border-radius: 7px;
+    text-decoration: none;
     text-align: center;
     transition: 0.3s;
 }
 
+
+
 .description_page_download:hover{
     background-color: rgb(154, 4, 154);
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     color: rgb(227, 225, 225);
-    text-decoration: underline;
     box-shadow: 6px 6px 6px rgb(114, 113, 113);
 }

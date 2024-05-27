@@ -6,7 +6,7 @@ import { ReactComponent as Icon } from './../svgs/folder-outline.svg';
 import { ReactComponent as Icon1 } from './../svgs/search-outline.svg';
 import './../css/pages/home.css';
 import no_data from "./../svgs/7466073.png";
-import {Container,Tab} from 'react-bootstrap';
+import { Table, Button, Image } from 'react-bootstrap';
 
 const roles = ['All Files','Product Team Developers', 'Service Area Developers', 'DB Team','Testers','Business Analysts','Business Development','HR'];
 
@@ -126,57 +126,65 @@ function Home() {
         <div className="App_inner">
 
 
-            <div className='search_section'>
-                <Icon1 className="search_icon_home" width={25} height={25}></Icon1>
-                <input
-                    type="text"
-                    placeholder="Search by filename"
-                    value={searchQuery}
-                    onChange={handleSearchChange}
-                    className="search_bar"
-                />
+            <div className="search_section">
+                <div className="search_container">
+                    <Icon1 className="search_icon_home" width={20} height={20} />
+                    <input
+                        type="text"
+                        placeholder="Search by filename"
+                        value={searchQuery}
+                        onChange={handleSearchChange}
+                        className="search_bar"
+                    />
+                </div>
             </div>
 
-            <TabComponent selectedRole={selectedRole} setSelectedRole={setSelectedRole} />
 
+            <TabComponent selectedRole={selectedRole} setSelectedRole={setSelectedRole} />
+            <div className='table_view_files_container'>
             {paginatedItems.length > 0 ? (
-            <ul className='heading'>
-                <span className='file_icon_heading'></span>
-                <p className='file_name_heading'>File Name</p>
-                <p className='download_button_span'>Download</p>
-                <p className='know_more_button_span'>Description</p>
-            </ul>
-            ): (
-                <div className='no_data_home_main'>
-                    <div className='no_data_home_main_image_section'>
-                    <img src = {no_data} className='no_data_home_main_image'></img>
-                    </div>
-                    <p className='no_data_home_main_description'>No Files Found!</p>
-                </div>
-            )}
-            <ul className='display_items'>
-                {paginatedItems.map((application, index) => (
-                    <li
-                        key={index} 
-                        className='individual_item'
-                        // onClick={() => handleItemClick(application.description, application.link)}
-                        
-                    >
-                        {/* Display image from base64 data */}
-                        <img src={application.image} className="image_icon_home" alt="Image" />
-                        <p className='individual_item_name'>{application.filename}</p>
-                        <a
-                            href={application.link.startsWith('/api/addData/download/') ? `http://localhost:3001${application.link}` : application.link}
-                            className='download_button_a'
-                        >
-                            <div className='download_button'>Click Here</div>
-                        </a>
-                        <div>
-                        <div className='know_more_button' onClick={() => navigate('/description', { state: { application } })}>Know More</div>
-                        </div>
-                    </li>
-                ))}
-            </ul>
+        <Table hover style={{ marginTop: '3rem', flex: "0 0 85%" }}>
+          <thead>
+            <tr>
+              <th style={{ width: '4%' }}></th>
+              <th style={{ width: '', fontSize: '13px', fontWeight: 'bold', textAlign: 'left', color:'gray' }} >File Name</th>
+              <th style={{ width: '5%', fontSize: '13px', fontWeight: 'bold', textAlign: 'left' }}></th>
+              <th style={{ width: '5%', fontSize: '13px', fontWeight: 'bold', textAlign: 'left' }}></th>
+            </tr>
+          </thead>
+          <tbody>
+            {paginatedItems.map((application, index) => (
+              <tr key={index} style={{ height: '2rem' }}>
+                <td style={{ verticalAlign: 'middle' }}>
+                  <Image src={application.image} className="image_icon_home" alt="Image" thumbnail />
+                </td>
+                <td style={{fontWeight: 'bold', verticalAlign: 'middle'}}>{application.filename}</td>
+                <td style={{ verticalAlign: 'middle' }}>
+                  <a
+                    href={application.link.startsWith('/api/addData/download/') ? `http://localhost:3001${application.link}` : application.link}
+                    className='download_button_a'
+                  >
+                    <div className='download_button'>Click Here</div>
+                  </a>
+                </td>
+                <td style={{ verticalAlign: 'middle' }}>
+                  <div className='know_more_button' onClick={() => navigate('/description', { state: { application } })}>
+                    Know More
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      ) : (
+        <div className='no_data_home_main'>
+          <div className='no_data_home_main_image_section'>
+            <img src={no_data} className='no_data_home_main_image' alt="No Data" />
+          </div>
+          <p className='no_data_home_main_description'>No Files Found!</p>
+        </div>
+      )}
+      </div>
 
 
             {/* <Modal show={showModal} onClose={handleCloseModal} description={selectedDescription} download_link={selectedDownloadLink} /> */}

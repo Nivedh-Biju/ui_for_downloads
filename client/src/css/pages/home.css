@@ -11,8 +11,7 @@
 
   
 .App_inner{
-    flex: 0 1 70%;
-    margin-left: 10rem;
+    flex: 0 1 90%;
     display: flex;
     justify-content: center;
     overflow-y: hidden;
@@ -57,12 +56,10 @@
   }
   
   .file_name_heading{
-    margin-top: 1rem;
-    margin-left: 2rem;
-    flex: 0 0 60%;
     color: black;
     font-size: 0.8rem;
-    font-weight: 600;
+    vertical-align: baseline;
+    font-weight: 700;
   }
   
   .download_button_span{
@@ -120,23 +117,16 @@
     padding: 10px;
     border: 1px solid gray;
     height: 3rem;
-    margin-top: 20px;
     object-fit: contain;  
   }
   
   .individual_item_name{
-    margin-top: 2rem;
-    margin-left: 2rem;
     font-weight: 600;
     flex: 0 1 60%;
   }
   
   .download_button{
-    padding-top: 2px;
-    padding-bottom: 2px;
     flex: 1 1 10%;
-    margin-left: auto;
-    margin-top: 1.5rem;
     border: 1px solid gray;
     border-radius: 7px;
     text-align: center;
@@ -148,13 +138,8 @@
   
 
   .know_more_button{
-    padding-top: 2px;
-    padding-bottom: 2px;
-    flex: 1 1 10%;
-    margin-top: 1.5rem;
     border: 1px solid gray;
     border-radius: 7px;
-    margin-left: 3rem;
     text-align: center;
     font-weight: 600;
     transition: 0.3s;
@@ -169,7 +154,6 @@
   .download_button:hover{
     background-color: rgb(203, 5, 203);
     color: white;
-    text-decoration: underline;
     border: 1px solid rgb(203, 5, 203);
     box-shadow: 1px 1px 1px purple;
   }
@@ -177,102 +161,48 @@
   .know_more_button:hover{
     background-color: rgb(203, 5, 203);
     color: white;
-    text-decoration: underline;
     border: 1px solid rgb(203, 5, 203);
     cursor: pointer;
     box-shadow: 1px 1px 1px purple;
   }
   
    
-  @media screen and (max-width: 1400px) {
-    .App_inner{
-      justify-self: right;
-    }
-    .individual_item{
-      overflow-x: scroll;
-      justify-content: center;
-      flex-wrap: nowrap;
-    }
-    .heading{
-      overflow-x: scroll;
-      justify-content: center;
-      flex-wrap: nowrap;
-    }
-    .file_icon_heading{
-      width: 3rem;
-      text-align: end;
-    }
-    .individual_item_name{
-      text-align: left;
-    }
-    .file_name_heading{
-      text-align: left;
-    }
-    .download_button_span{
-      text-align: left;
-      width: 4rem;
-      font-size: 0.8rem;
-    }
-    .file_icon{
-      width: 3rem;
-      text-align: end;
-    }
-    .download_button{
-      text-align: left;
-    }
-  }
-  
-  
-  @media screen and (max-width: 800px) {
-    .individual_item_name{
-      font-size: 1rem;
-    }
-  
-    .heading{
-      font-size: 1rem;
-    }
-  
-    .file_name_heading{
-      text-align: left;
-    }
-  
-  
-    .download_button{
-      flex: 0 1 5%;
-      font-size: 1rem;
-    }
-    .file_icon{
-      margin-top: 0.5rem;
-    }
-  }
-  
-  
 
-
-  .search_section{
+  .search_section {
     flex: 0 1 85%;
     display: flex;
     justify-content: right;
     margin-bottom: 2rem;
-  }
+}
 
-  .search_bar{
-    flex: 0 1 30%;
+.search_container {
+    position: relative;
+    flex: 0 1 25%;
+}
+
+.search_bar {
+    width: 100%;
     height: 2.5rem;
-    padding: 0 10px;
+    padding: 0 10px 0 35px;
     border: 2px solid rgb(182, 179, 179);
     border-radius: 0.5rem;
-  }
+    box-sizing: border-box;
+}
 
-  .search_icon_home{
-    flex: 0 1 5%;
-    margin-top: 10px;
-  }
+.search_icon_home {
+    position: absolute;
+    left: 10px; 
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+}
 
-
-  .search_bar:hover{
+.search_bar:hover {
     box-shadow: 5px 5px 5px gray;
-  }
+}
+
 
   .pagination{
     flex: 0 1 100%;
@@ -289,6 +219,7 @@
     display: block;
     font-size: 1.5rem;
     padding: 0.3rem;
+    font-size: 1.2rem;
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 3rem;
@@ -376,4 +307,9 @@
   text-align: center;
   margin-top: 0;
   color: gray;
+}
+
+.table_view_files_container {
+  flex: 0 0 85%;
+  overflow-x: auto; 
 }

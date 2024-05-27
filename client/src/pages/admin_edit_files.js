@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { ReactComponent as Icon1 } from './../svgs/search-outline.svg';
 import './../css/pages/admin_edit_files.css';
 import no_data from "./../svgs/7466073.png";
+import { Table, Image } from 'react-bootstrap';
+import profile from "./../profile.png";
 
 const roles = [
     'All Files',
@@ -47,6 +49,10 @@ function AdminEditFiles() {
     const [searchQuery, setSearchQuery] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const [selectedRole, setSelectedRole] = useState('All Files');
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
+    
+
     const itemsPerPage = 5;
     const navigate = useNavigate();
 
@@ -117,91 +123,134 @@ function AdminEditFiles() {
     };
 
     const filteredItems = items.filter(application => {
-        if (selectedRole === 'All Files') {
-            return true;
-        }
-        if (application.roles && application.roles.includes('all')) {
-            return true;
-        }
-        return application.roles && application.roles.includes(selectedRole);
+        const isRoleMatch = selectedRole === 'All Files' ||
+            (application.roles && (application.roles.includes('all') || application.roles.includes(selectedRole)));
+        const uploadedDate = new Date(application.uploadedDate);
+        const endOfDay = endDate ? new Date(new Date(endDate).setHours(23, 59, 59, 999)) : null;
+        const isDateMatch = (!startDate || uploadedDate >= new Date(startDate)) &&
+            (!endDate || uploadedDate <= endOfDay);
+        return isRoleMatch && isDateMatch;
     });
+    
+    
+    
 
     const paginatedItems = filteredItems.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
     const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
 
     return (
         <div className="admin_edit_files_App_inner">
-            <div className='admin_edit_files_search_section'>
-                <Icon1 className="admin_edit_files_search_icon_home" width={25} height={25}></Icon1>
+
+
+            <div className="admin_edit_file_search_section">
+                <div className="admin_edit_file_search_container">
+                    <Icon1 className="admin_edit_file_search_icon_home" width={20} height={20} />
+                    <input
+                        type="text"
+                        placeholder="Search by filename"
+                        value={searchQuery}
+                        onChange={handleSearchChange}
+                        className="search_bar"
+                    />
+                </div>
+            </div>
+
+            <div className="admin_edit_files_date_filter">
+                <label className='admin_edit_files_date_label'>
+                    Start Date :
+                </label>
                 <input
-                    type="text"
-                    placeholder="Search by filename"
-                    value={searchQuery}
-                    onChange={handleSearchChange}
-                    className="admin_edit_files_search_bar"
+                    type="date"
+                    value={startDate}
+                    onChange={(e) => setStartDate(e.target.value)}
+                    className="admin_edit_files_date_input"
+                />
+                <label className='admin_edit_files_date_label'>
+                      End Date :
+                </label>
+                <input
+                    type="date"
+                    value={endDate}
+                    onChange={(e) => setEndDate(e.target.value)}
+                    className="admin_edit_files_date_input"
                 />
             </div>
 
+
+
             <TabComponent selectedRole={selectedRole} setSelectedRole={setSelectedRole} />
-
+        <div className='table_edit_files_container'>
             {paginatedItems.length > 0 ? (
-                    <ul className='admin_edit_files_heading'>
-                        <span className='admin_edit_files_file_icon_heading'></span>
-                        <p className='admin_edit_files_file_name_heading'>File Name</p>
-                        <p className='admin_edit_files_uploaded_date_heading'>Uploaded Date</p>
-                        <p className='admin_edit_files_file_updated_date_heading'>Updated Date</p>
-                        <p className='admin_edit_files_download_button_span'>Edit</p>
-                        <p className='admin_edit_files_action_button_heading'>Delete</p>
-                </ul>): (
-                <div className='no_data_home_main'>
-                    <div className='no_data_home_main_image_section'>
-                    <img src = {no_data} className='no_data_home_main_image'></img>
+        <Table hover style={{ marginTop: '3rem', flex: "0 0 85%", width: "100%"}}>
+          <thead>
+            <tr>
+              <th style={{ width: '4%' }}></th>
+              <th style={{ width: '', fontSize: '13px', fontWeight: 'bold', textAlign: 'left', color:'gray' }}>File Name</th>
+              <th style={{ width: '10%', fontSize: '13px', fontWeight: 'bold', textAlign: 'left', color:'gray' }}>Uploaded Date</th>
+              <th style={{ width: '10%', fontSize: '13px', fontWeight: 'bold', textAlign: 'left', color:'gray' }}>Updated Date</th>
+              <th style={{ width: '15%', fontSize: '13px', fontWeight: 'bold', textAlign: 'left', color:'gray' }}>Uploaded By</th>
+              <th style={{ width: '5%', fontSize: '13px', fontWeight: 'bold', textAlign: 'left' }}></th>
+              <th style={{ width: '5%', fontSize: '13px', fontWeight: 'bold', textAlign: 'left' }}></th>
+            </tr>
+          </thead>
+          <tbody>
+            {paginatedItems.map((application, index) => (
+              <tr
+                key={index}
+                onClick={() => navigate('/description', { state: { application } })}
+                style={{ height: '6rem', padding: '100px' }}
+              >
+                <td style={{verticalAlign: 'middle'}}><img src={application.image} className="admin_edit_files_image_icon_home" alt="Image" /></td>
+                <td style={{fontWeight: 'bold', verticalAlign: 'middle'}}>{application.filename}</td>
+                <td style={{ color : 'gray',verticalAlign: 'middle'}}>{new Date(application.uploadedDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</td>
+                <td style={{ color : 'gray', verticalAlign: 'middle'}}>{new Date(application.updatedDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</td>
+
+                <td style={{ color : 'gray', verticalAlign: 'middle'}}>
+                    <div className='uploaded_by_container'>
+                        <img src = {profile} className='uploaded_by_image'></img>
+                        <div className='uploaded_by_details'>
+                            <label className='uploaded_by_name'>Admin 1</label>
+                            <label className='uploaded_by_email'>example@gmail.com</label>
+                        </div>
                     </div>
-                    <p className='no_data_home_main_description'>No Files Found!</p>
-                </div>
-            
-            )}
+                </td>
 
-            <ul className='admin_edit_files_display_items'>
-                {
-                    paginatedItems.map((application, index) => (
-                        <li
-    key={index}
-    className='admin_edit_files_individual_item'
-    onClick={() => navigate('/description', { state: { application } })}
->
-    <img src={application.image} className="admin_edit_files_image_icon_home" alt="Image" />
-    <p className='admin_edit_files_individual_item_name'>{application.filename}</p>
-    <div className='admin_edit_files_uploaded_date'>{new Date(application.uploadedDate).toLocaleString()}</div>
-    <div className='admin_edit_files_updated_date'>{new Date(application.updatedDate).toLocaleString()}</div>
-    <div>
-        <div
-            className='admin_edit_files_edit_button'
-            onClick={(e) => {
-                e.stopPropagation();
-                console.log(application._id);
-                navigate('/edit_file',{state : {application}});
-            }}
-        >
-            Edit
+                <td style={{ verticalAlign: 'middle' }}>
+                  <div
+                    className='admin_edit_files_edit_button'
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      console.log(application._id);
+                      navigate('/edit_file',{state : {application}});
+                    }}
+                  >
+                    Edit
+                  </div>
+                </td>
+                <td style={{ verticalAlign: 'middle' }}>
+                  <div
+                    className='admin_edit_files_delete_button'
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDelete(application._id);
+                    }}
+                  >
+                    Delete
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      ) : (
+        <div className='no_data_home_main'>
+          <div className='no_data_home_main_image_section'>
+            <img src={no_data} className='no_data_home_main_image' alt="No Data" />
+          </div>
+          <p className='no_data_home_main_description'>No Files Found!</p>
         </div>
-    </div>
-    <div>
-        <div
-            className='admin_edit_files_delete_button'
-            onClick={(e) => {
-                e.stopPropagation();
-                handleDelete(application._id);
-            }}
-        >
-            Delete
-        </div>
-    </div>
-</li>
-
-                    ))
-               }
-            </ul>
+      )}
+      </div>
 
             <Modal show={showModal} onClose={handleCloseModal} description={selectedDescription} download_link={selectedDownloadLink} />
             <div className='admin_edit_files_pagination'>
