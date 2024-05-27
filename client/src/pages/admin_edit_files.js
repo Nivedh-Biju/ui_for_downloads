@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
-import Modal from '../components/modal';
 import { useNavigate } from 'react-router-dom';
 import { ReactComponent as Icon1 } from './../svgs/search-outline.svg';
 import './../css/pages/admin_edit_files.css';
@@ -44,9 +43,6 @@ const TabComponent = ({ selectedRole, setSelectedRole }) => {
 };
 
 function AdminEditFiles() {
-    const [showModal, setShowModal] = useState(false);
-    const [selectedDescription, setSelectedDescription] = useState('');
-    const [selectedDownloadLink, setSelectedDownloadLink] = useState('');
     const [items, setItems] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
@@ -71,15 +67,7 @@ function AdminEditFiles() {
         fetchData();
     }, []);
 
-    const handleItemClick = (description, link) => {
-        setSelectedDescription(description);
-        setSelectedDownloadLink(link);
-        setShowModal(true);
-    };
 
-    const handleCloseModal = () => {
-        setShowModal(false);
-    };
 
     const handleDelete = async (fileId) => {
         try {
@@ -259,7 +247,6 @@ function AdminEditFiles() {
       )}
       </div>
 
-            <Modal show={showModal} onClose={handleCloseModal} description={selectedDescription} download_link={selectedDownloadLink} />
             <div className='admin_edit_files_pagination'>
                 {Array.from({ length: totalPages }, (_, i) => (
                     <div

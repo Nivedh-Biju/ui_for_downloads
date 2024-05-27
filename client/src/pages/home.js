@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback, } from 'react';
 import axios from 'axios';
-import Modal from "../components/modal";
 import { useNavigate } from "react-router-dom";
 import { ReactComponent as Icon } from './../svgs/folder-outline.svg';
 import { ReactComponent as Icon1 } from './../svgs/search-outline.svg';
@@ -38,9 +37,6 @@ const TabComponent = ({ selectedRole, setSelectedRole}) => {
 
 
 function Home() {
-    const [showModal, setShowModal] = useState(false);
-    const [selectedDescription, setSelectedDescription] = useState('');
-    const [selectedDownloadLink, setSelectedDownloadLink] = useState('');
     const [items, setItems] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [currentPage, setCurrentPage] = useState(1);  
@@ -63,15 +59,6 @@ function Home() {
         fetchData();
     }, []);
 
-    const handleItemClick = (description, link) => {
-        setSelectedDescription(description);
-        setSelectedDownloadLink(link);
-        setShowModal(true);
-    };
-
-    const handleCloseModal = () => {
-        setShowModal(false);
-    };
 
     const searchHandler = async (query) => {
         try {
@@ -192,7 +179,6 @@ function Home() {
       </div>
 
 
-            {/* <Modal show={showModal} onClose={handleCloseModal} description={selectedDescription} download_link={selectedDownloadLink} /> */}
             <div className='pagination'>
                 {Array.from({ length: totalPages }, (_, i) => (
                     <div

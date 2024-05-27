@@ -49,84 +49,12 @@
   .icon_inner_header{
     flex: 0 1 4%;
   }
-  
-  .display_items{
-    display: flex;
-    flex-wrap: wrap;
-    flex: 0 1 90%;
-    justify-content: center;
-  }
-  
-  .heading{
-    height: 3rem;
-    justify-content: left;
-    display: flex;
-    flex-wrap: wrap;
-    flex: 0 1 88%;  
-    border-bottom: 1px solid rgb(117, 116, 116);
-    transition: 0.3s;
-    margin-top: 2rem;
-    opacity: 0.8; 
-  }
-  
-  .file_icon_heading{
-    flex: 0 1 4%;
-    border-radius: 10px;
-    padding: 10px;
-    height: 3rem;
-    margin-top: 20px;
-  }
-  
-  .file_name_heading{
-    color: black;
-    font-size: 0.8rem;
-    vertical-align: baseline;
-    font-weight: 700;
-  }
-  
-  .download_button_span{
-    padding-top: 2px;
-    flex: 0 1 10%;
-    margin-top: 0.7rem;
-    border-radius: 7px;
-    text-align: left;
-    font-size: 0.8rem;
-    width: 6rem;
-    margin-left: 0.9rem;
-    color: black;
-    font-weight: 600;
-  }
 
 
-  .know_more_button_span{
-    padding-top: 2px;
-    flex: 0 1 10%;
-    margin-top: 0.7rem;
-    border-radius: 7px;
-    margin-left: 2rem;
-    text-align: left;
-    font-size: 0.8rem;
-    width: 6rem;
-    color: black;
-    font-weight: 600; 
-}
-
-
-  .individual_item{
-    height: 5rem;
-    justify-content: left;
-    display: flex;
-    flex-wrap: wrap;
-    flex: 0 1 100%;  
-    border-bottom: 1px solid rgb(117, 116, 116);
-    transition: 0.3s;
-    opacity: 0.8; 
-  }
   
-  /* .individual_item:hover{
-    background-color: rgb(192, 191, 191);
-    cursor: pointer;
-  } */
+
+
+
 
    .download_button_a{
     text-decoration: none;

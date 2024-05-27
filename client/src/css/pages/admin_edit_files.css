@@ -54,87 +54,9 @@
     justify-content: center;
 }
 
-.admin_edit_files_heading {
-    height: 3rem;
-    justify-content: left;
-    display: flex;
-    flex-wrap: wrap;
-    flex: 0 1 88%;  
-    border-bottom: 1px solid rgb(117, 116, 116);
-    transition: 0.3s;
-    margin-top: 2rem;
-    opacity: 0.8; 
-}
-
-.admin_edit_files_file_icon_heading {
-    flex: 0 1 4%;
-    border-radius: 10px;
-    padding: 10px;
-    height: 3rem;
-    margin-top: 20px;
-}
-
-.admin_edit_files_file_name_heading {
-    margin-top: 1rem;
-    margin-left: 1rem;
-    flex: 0 1 35%;
-    color: black;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
-.admin_edit_files_uploaded_date_heading{
-    margin-top: 1rem;
-    margin-left: 1.5rem;
-    flex: 0 1 10%;
-    color: black;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
-.admin_edit_files_file_updated_date_heading{
-    margin-top: 1rem;
-    margin-left: 1.5rem;
-    flex: 0 1 10%;
-    color: black;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
-.admin_edit_files_download_button_span {
-    margin-top: 1rem;
-    margin-left: 2.5rem;
-    flex: 0 1 10%;
-    color: black;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
-.admin_edit_files_action_button_heading{
-    margin-top: 1rem;
-    margin-left: 2rem;
-    flex: 0 1 10%;
-    color: black;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
 
 
-.admin_edit_files_individual_item {
-    height: 5rem;
-    justify-content: left;
-    display: flex;
-    flex-wrap: wrap;
-    flex: 0 1 100%;  
-    border-bottom: 1px solid rgb(117, 116, 116);
-    transition: 0.3s;
-    opacity: 0.8; 
-}
 
-/* .admin_edit_files_individual_item:hover {
-    background-color: rgb(192, 191, 191);
-    cursor: pointer;
-} */
 
 .admin_edit_files_image_icon_home {
     flex: 0 1 4%;
