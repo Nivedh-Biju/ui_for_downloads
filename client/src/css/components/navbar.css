@@ -22,7 +22,7 @@
   
   .side_bar_icons {
     z-index: 10;
-    width: 100%; /* Ensure icons take up the full width */
+    width: 100%; 
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -32,10 +32,9 @@
   .icons {
     transition: 0.3s;
     color: gray;
-    flex: 0 0 10%; /* Allow icons to grow and shrink */
-    width: 2rem; /* Adjust icon width */
-    height: 5rem; /* Adjust icon height */
-    margin: 0.5rem; /* Adjust margin between icons */
+    flex: 0 1 10%; 
+    height: 5rem; 
+    margin: 0.5rem; 
     z-index: 10;
   } 
   
@@ -160,3 +159,21 @@
     }
   }
   
+
+  @media screen and (max-width: 1600px) {
+    .icons {
+      transition: 0.3s;
+      color: gray;
+      width: 2rem; /* Adjust icon width */
+      height: 3rem; /* Adjust icon height */
+      z-index: 10;
+    } 
+    
+    .icons_name{
+      transition: 0.3s;
+      margin-top: 1rem;
+      flex: 0 0 10%;
+      font-size: 1rem;
+      color: gray;
+    }
+  }

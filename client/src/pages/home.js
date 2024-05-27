@@ -17,6 +17,7 @@ const TabComponent = ({ selectedRole, setSelectedRole}) => {
     };
 
     return (
+        <div className="admin_edit_files_tabs_outer_container">
         <div className="admin_edit_files_tab_container">
             {roles.map((role) => (
                 <div
@@ -29,6 +30,7 @@ const TabComponent = ({ selectedRole, setSelectedRole}) => {
                     </div>
                 </div>
             ))}
+        </div>
         </div>
     );
 };
@@ -125,7 +127,10 @@ function Home() {
     return (
         <div className="App_inner">
 
-
+            <div className='home_heading_section'>
+                <p className='home_heading_text'>Attached Files</p>
+                <p className='home_heading_text_p'>Attached files for each team with it's respective download link</p>
+            </div>
             <div className="search_section">
                 <div className="search_container">
                     <Icon1 className="search_icon_home" width={20} height={20} />

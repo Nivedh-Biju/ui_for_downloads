@@ -25,6 +25,7 @@ const TabComponent = ({ selectedRole, setSelectedRole }) => {
     };
 
     return (
+        <div className="admin_edit_files_tabs_outer_container">
         <div className="admin_edit_files_tab_container">
             {roles.map((role) => (
                 <div
@@ -37,6 +38,7 @@ const TabComponent = ({ selectedRole, setSelectedRole }) => {
                     </div>
                 </div>
             ))}
+        </div>
         </div>
     );
 };
@@ -141,7 +143,11 @@ function AdminEditFiles() {
     return (
         <div className="admin_edit_files_App_inner">
 
-
+            <div className='admin_edit_files_home_heading_section'>
+                <p className='admin_edit_files_home_heading_text'>Edit Files</p>
+                <p className='admin_edit_files_home_heading_text_p'>Edit or delete attached files and their respective details</p>
+            </div>
+        <div className='admmin_edit_files_filter_section'>
             <div className="admin_edit_file_search_section">
                 <div className="admin_edit_file_search_container">
                     <Icon1 className="admin_edit_file_search_icon_home" width={20} height={20} />
@@ -175,6 +181,7 @@ function AdminEditFiles() {
                     className="admin_edit_files_date_input"
                 />
             </div>
+        </div>
 
 
 
@@ -188,7 +195,7 @@ function AdminEditFiles() {
               <th style={{ width: '', fontSize: '13px', fontWeight: 'bold', textAlign: 'left', color:'gray' }}>File Name</th>
               <th style={{ width: '10%', fontSize: '13px', fontWeight: 'bold', textAlign: 'left', color:'gray' }}>Uploaded Date</th>
               <th style={{ width: '10%', fontSize: '13px', fontWeight: 'bold', textAlign: 'left', color:'gray' }}>Updated Date</th>
-              <th style={{ width: '15%', fontSize: '13px', fontWeight: 'bold', textAlign: 'left', color:'gray' }}>Uploaded By</th>
+              <th style={{ width: '25%', fontSize: '13px', fontWeight: 'bold', textAlign: 'left', color:'gray' }}>Uploaded By</th>
               <th style={{ width: '5%', fontSize: '13px', fontWeight: 'bold', textAlign: 'left' }}></th>
               <th style={{ width: '5%', fontSize: '13px', fontWeight: 'bold', textAlign: 'left' }}></th>
             </tr>

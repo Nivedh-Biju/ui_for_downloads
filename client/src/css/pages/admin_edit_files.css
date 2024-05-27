@@ -16,6 +16,28 @@
     flex-wrap: wrap;
 }
 
+.admin_edit_files_home_heading_section{
+    flex: 0 0 85%;
+    display: flex;
+    justify-content: left;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .admin_edit_files_home_heading_text{
+    font-size: 3rem;
+    flex: 0 0 100%;
+    font-weight: 600;
+    color: purple;
+  }
+
+  .admin_edit_files_home_heading_text_p{
+    flex: 0 0 100%;
+    font-size: 1rem;
+    color: gray;
+  }
+
+
 .admin_edit_files_inner_elements_header {
     flex: 0 1 70%;
     display: flex;
@@ -199,16 +221,24 @@ a {
 
 
 
-.admin_edit_file_search_section {
-    flex: 0 1 85%;
-    display: flex;
+.admmin_edit_files_filter_section{
+    flex: 0 0 85%;
+    flex-wrap: wrap;
     justify-content: right;
+    display: flex;
+}
+
+
+.admin_edit_file_search_section {
+    flex: 0 1 50%;
+    display: flex;
+    justify-content: left;
     margin-bottom: 2rem;
 }
 
 .admin_edit_file_search_container {
     position: relative;
-    flex: 0 1 25%;
+    flex: 0 1 50%;
 }
 
 .admin_edit_file_search_bar {
@@ -238,13 +268,13 @@ a {
 .admin_edit_files_date_filter{
     margin-top: 0.5rem;
     margin-bottom: 1rem;
-    flex: 0 0 85%;
+    flex: 0 0 50%;
     display: flex;
     justify-content: right;
 }
 
 .admin_edit_files_date_input{
-    flex: 0 0 15%;
+    flex: 0 0 25%;
     border: 1px solid gray;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -303,32 +333,34 @@ a {
     text-decoration: underline;
 }
 
+
+
 .admin_edit_files_tab_container {
-    flex: 0 1 85%;
-    display: flex;
+    display: inline-flex;
+    justify-content: left;
     border: 1px solid #ccc;
-    border-radius: 10px;
+    border-radius: 1rem;
+    overflow: hidden; /* To ensure rounded corners work properly */
 }
 
 .admin_edit_files_tab {
-    flex: 1;
-    padding: 10px;
     text-align: center;
     font-size: 1rem;
-    display: flex;
+    display: inline-flex;
     cursor: pointer;
     background-color: white;
     align-items: center;
     justify-content: center;
-    border-right: 1px solid gray;
+    border-right: 1px solid #ccc;
     transition: background-color 0.3s ease;
+    padding: 0.5rem 1rem; /* Adjust padding as needed */
 }
 
-.admin_adit_files_tab_text{
+.admin_adit_files_tab_text {
     text-align: center;
     font-weight: 500;
-    justify-content: center;
 }
+
 .admin_edit_files_tab:hover {
     background-color: #e0e0e0;
 }
@@ -336,7 +368,38 @@ a {
 .admin_edit_files_tab.admin_edit_files_active {
     background-color: purple;
     color: white;
+    border: 2px solid white;
 }
+
+.admin_edit_files_tab:last-child {
+    border-right: none;
+}
+
+
+.admin_edit_files_tab.admin_edit_files_active:last-child {
+    background-color: purple;
+    color: white;
+    border: 2px solid white;
+    border-right: none;
+    border-radius: 0px 16px 16px 0px;
+}
+
+.admin_edit_files_tab.admin_edit_files_active:first-child {
+    background-color: purple;
+    color: white;
+    border: 2px solid white;
+    border-right: none;
+    border-radius: 16px 0px 0px 16px;
+}
+
+.admin_edit_files_tabs_outer_container {
+
+    flex: 0 0 85%;
+    display: flex;
+    justify-content: flex-start; 
+    width: 100%;
+}
+
 
 .admin_edit_files_no_data_home_main {
     flex: 0 1 100%;
@@ -392,9 +455,13 @@ a {
 .uploaded_by_details{
     flex: 0 1 60%;
     margin-left: 3px;
+    display: flex;
+
+    flex-wrap: wrap;
 }
 
 .uploaded_by_name{
+    flex: 0 0 100%;
     font-size: 1rem;
     font-weight: bold;
     height: 1rem;
@@ -404,6 +471,7 @@ a {
 }
 
 .uploaded_by_email{
+    flex: 0 0 100%;
     font-size: 0.8rem;
     padding: 0%;
     height: 0.8rem;

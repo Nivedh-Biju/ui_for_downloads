@@ -19,6 +19,28 @@
   }
   
   
+  .home_heading_section{
+    flex: 0 0 85%;
+    display: flex;
+    justify-content: left;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .home_heading_text{
+    font-size: 3rem;
+    flex: 0 0 100%;
+    font-weight: 600;
+    color: purple;
+  }
+
+  .home_heading_text_p{
+    flex: 0 0 100%;
+    font-size: 1rem;
+    color: gray;
+  }
+
+
   .inner_elements_header{
     flex: 0 1 70%;
     display: flex;
@@ -171,7 +193,7 @@
   .search_section {
     flex: 0 1 85%;
     display: flex;
-    justify-content: right;
+    justify-content: left;
     margin-bottom: 2rem;
 }
 
@@ -244,11 +266,10 @@
 
 
 .tab-container {
-    flex: 0 1 85%;
-    display: flex;
-    border: 1px solid #ccc;
-    height: rem;
-    border-radius: 5px;
+  display: inline-flex;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  overflow: hidden; /* To ensure rounded corners work properly */
 }
 
 .tab {
@@ -260,7 +281,7 @@
     font-size:1rem; 
     color: rgb(43, 42, 42);
     transition: background-color 0.3s ease;
-    border-right: 1px solid gray;
+    border-right: 1px solid #ccc;
     justify-content: center;
 }
 
